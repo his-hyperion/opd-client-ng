@@ -4,7 +4,8 @@
   "description": "Front-end app for Digital Pulz OPD module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server -c src/config/bs-config.json"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +14,8 @@
     "angular-animate": "^1.3.20",
     "angular-aria": "^1.3.20",
     "angular-material": "^1.1.4"
+  },
+  "devDependencies": {
+    "lite-server": "^2.3.0"
   }
 }
