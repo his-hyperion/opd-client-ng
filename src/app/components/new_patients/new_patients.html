@@ -1,6 +1,6 @@
 <md-content layout-padding>
     <div>
-        <form name="patientForm">
+        <form ng-controller="newPatientsController" name="patientForm" ng-cloak>
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
@@ -8,65 +8,225 @@
                     </md-card-title-text>
                 </md-card-title>
                 <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>First name</label>
-                        <input name="firstName" ng-model="newPatient.firstName" required ng-pattern="/^[a-zA-Z\s]*$/" >
-                        <div ng-messages="patientForm.firstName.$error"role="alert">
-                            <div ng-message-exp="['required','pattern']">Invalid.</div>
-                        </div>
+
+                    <md-input-container flex="5">
                     </md-input-container>
 
-                    <md-input-container class="md-block" flex-gt-sm required>
+                    <md-input-container flex="10">
+                        <label>Title</label>
+                        <md-select name="title" ng-model="title" required>
+                            <md-option value="Rev.">Rev.</md-option>
+                            <md-option value="Mr.">Mr.</md-option>
+                            <md-option value="Mrs.">Mrs.</md-option>
+                            <md-option value="Miss.">Miss.</md-option>
+                        </md-select>
+                        <div ng-messages="patientForm.title.$error" role="alert">
+                            <div ng-message="required">Required</div>
+                        </div>
+
+                    </md-input-container>
+                    <md-input-container flex="5">
+
+                    </md-input-container>
+                    <md-input-container class="md-block" flex="35">
+                        <label>First Name</label>
+                        <input name="firstName" ng-model="firstName" required ng-pattern="/^[a-zA-Z\s]*$/">
+                        <div ng-messages="patientForm.firstName.$error" role="alert">
+                            <div ng-message="pattern">Invalid. Enter only letters</div>
+                            <div ng-message="required">Required</div>
+                        </div>
+
+                    </md-input-container>
+                    <md-input-container flex="5">
+
+                    </md-input-container>
+                    <md-input-container class="md-block" flex="35">
                         <label>Last Name</label>
-                        <input ng-model="theMax">
+                        <input name="lastName" ng-model="lastName" required ng-pattern="/^[a-zA-Z\s]*$/">
+                        <div ng-messages="patientForm.lastName.$error" role="alert">
+                            <div ng-message="pattern">Invalid. Enter only letters</div>
+                            <div ng-message="required">Required</div>
+                        </div>
                     </md-input-container>
                 </div>
+                <div layout-gt-sm="row">
+                    <md-input-container>
+                        <label>Date of Birth</label>
+                        <md-datepicker name="dob" ng-model="dob" required md-current-view="year"></md-datepicker>
+                        <div ng-messages="patientForm.dob.$error" role="alert">
+                            <div ng-message="required">Required</div>
+                            <div ng-message="valid">Invalid date</div>
+                        </div>
+                    </md-input-container>
 
-                <md-input-container class="md-block">
-                    <label>Address</label>
-                    <input ng-model="user.address">
-                </md-input-container>
+                    <md-input-container flex="5">
+                    </md-input-container>
 
-                <md-input-container md-no-float class="md-block">
-                    <input ng-model="user.address2" placeholder="Address 2">
-                </md-input-container>
+                    <md-input-container flex="15">
+                        <label>Gender</label>
+                        <md-select name="gender" ng-model="gender" required>
+                            <md-option value="Male">Male</md-option>
+                            <md-option value="Female">Female</md-option>
+                        </md-select>
+                        <div ng-messages="patientForm.gender.$error" role="alert">
+                            <div ng-message="required">Required</div>
+                        </div>
+
+                    </md-input-container>
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container flex="15">
+                        <label>Civil Status</label>
+                        <md-select name="civilStatus" ng-model="civilStatus" required>
+                            <md-option value="Married">Married</md-option>
+                            <md-option value="Unmarried">Unmarried</md-option>
+                        </md-select>
+                        <div ng-messages="patientForm.civilStatus.$error" role="alert">
+                            <div ng-message="required">Required</div>
+                        </div>
+                </div>
             </md-card>
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Patients Personal Details</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
 
-            <div layout-gt-sm="row">
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>City</label>
-                    <input ng-model="user.city">
-                </md-input-container>
-
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>State</label>
-                    <md-select ng-model="user.state">
-                        <md-option ng-repeat="state in states" value="{{state.abbrev}}">
-                            {{state.abbrev}}
-                        </md-option>
-                    </md-select>
-                </md-input-container>
-
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Postal Code</label>
-                    <input name="postalCode" ng-model="user.postalCode" placeholder="12345" required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
-
-                    <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
-                        <div ng-message="required" class="my-message">You must supply a postal code.</div>
-                        <div ng-message="pattern" class="my-message">That doesn't look like a valid postal code.
+                    <md-input-container class="md-block" flex="25">
+                        <label>NIC</label>
+                        <input name="nic" ng-model="nic" required ng-pattern="/^[0-9]{9}[vVxX]$/">
+                        <div ng-messages="patientForm.nic.$error" role="alert">
+                            <div ng-message="pattern">Invalid NIC number</div>
+                            <div ng-message="required">Required</div>
                         </div>
-                        <div ng-message="md-maxlength" class="my-message">
-                            Don't use the long version silly...we don't need to be that specific...
+                    </md-input-container>
+
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex="25">
+                        <label>Passport</label>
+                        <input name="passport" ng-model="passport" ng-pattern="/^[0-9]{12}$/">
+                        <div ng-messages="patientForm.passport.$error" role="alert">
+                            <div ng-message="pattern">Invalid Passport number</div>
                         </div>
-                    </div>
-                </md-input-container>
-            </div>
+                    </md-input-container>
 
-            <md-input-container class="md-block">
-                <label>Biography</label>
-                <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-            </md-input-container>
+                    <md-input-container flex="5">
+                    </md-input-container>
 
+                    <md-input-container class="md-block" flex="25">
+                        <label>Citizenship</label>
+                        <input name="citizenship" ng-model="citizenship" ng-pattern="/^[a-zA-Z\s]*$/">
+                        <div ng-messages="patientForm.citizenship.$error" role="alert">
+                            <div ng-message="pattern">Invalid Citizenship</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+                    <md-input-container flex="25">
+                        <label>Preffered Language</label>
+                        <md-select name="language" ng-model="language" required>
+                            <md-option value="Sinhala">Sinhala</md-option>
+                            <md-option value="Tamil">Tamil</md-option>
+                            <md-option value="English">English</md-option>
+                        </md-select>
+                        <div ng-messages="patientForm.language.$error" role="alert">
+                            <div ng-message="required">Required</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+                    <md-input-container flex="25">
+                        <label>Blood Group</label>
+                        <md-select name="bloodGroup" ng-model="bloodGroup" required>
+                            <md-option value="A+">A+</md-option>
+                            <md-option value="A-">A-</md-option>
+                            <md-option value="B+">B+</md-option>
+                            <md-option value="B-">B-</md-option>
+                            <md-option value="AB+">AB+</md-option>
+                            <md-option value="AB-">AB-</md-option>
+                            <md-option value="O+">O+</md-option>
+                            <md-option value="O-">O-</md-option>
+                        </md-select>
+                        <div ng-messages="patientForm.bloodGroup.$error" role="alert">
+                            <div ng-message="required">Required</div>
+                        </div>
+                    </md-input-container>
+                </div>
+            </md-card>
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Patients Contact Details</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex="65">
+                        <label>Address</label>
+                        <input name="address" ng-model="address" required>
+                        <div ng-messages="patientForm.address.$error" role="alert">
+                            <div ng-message="required">Required</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex="30">
+                        <label>Phone</label>
+                        <input name="phone" ng-model="phone" required ng-pattern="/^[0-9]{10}$/">
+                        <div ng-messages="patientForm.phone.$error" role="alert">
+                            <div ng-message="required">Required</div>
+                            <div ng-message="pattern">Invalid Phone number</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container flex="5">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex="30">
+                        <label>Mobile</label>
+                        <input name="mobile" ng-model="mobile" required ng-pattern="/^[0-9]{10}$/">
+                        <div ng-messages="patientForm.mobile.$error" role="alert">
+                            <div ng-message="required">Required</div>
+                            <div ng-message="pattern">Invalid Phone number</div>
+                        </div>
+                    </md-input-container>
+                </div>
+            </md-card>
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Patients Other Details</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex="65">
+                        <label>Remark</label>
+                        <input name="remark" ng-model="remark">
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+                    <md-button type="reset" class="md-raised md-warn">Clear</md-button>
+                    <md-button class="md-raised md-primary" ng-click="AddNewPatients()" >Submit</md-button>
+                </div>
+            </md-card>
         </form>
     </div>
 </md-content>

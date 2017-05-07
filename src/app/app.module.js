@@ -1,4 +1,4 @@
-angular.module('opdClient', ['ngMaterial', 'sidebar', 'ngRoute', 'myPatients'])
+angular.module('opdClient', ['ngMaterial', 'ngMessages', 'sidebar', 'ngRoute', 'myPatients', 'newPatients'])
     .run(function () {
         console.log('sasas');
     });

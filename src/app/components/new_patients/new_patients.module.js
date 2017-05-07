@@ -1,1 +1,1 @@
-angular.module('newPatients', ['ngMaterial']);
+angular.module('newPatients', ['ngMaterial', 'ngMessages']);
