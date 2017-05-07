@@ -20,7 +20,10 @@
         <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
             <side-bar></side-bar>
         </md-sidenav>
-        <md-content id="content" class="blue" flex>Content</md-content>
+        <md-content id="content" class="blue" flex>
+            Content
+            <ng-view></ng-view>
+        </md-content>
     </div>
 
 
@@ -31,6 +34,7 @@
     <script src="node_modules/angular-material/angular-material.min.js"></script>
 
     <script src="./app.module.js"></script>
+    <script src="./app.config.js"></script>
     <script src="./shared/sidebar/sidebar.module.js"></script>
     <script src="./shared/sidebar/sidebar.directive.js"></script>
 </body>
