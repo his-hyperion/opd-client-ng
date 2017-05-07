@@ -1,5 +1,5 @@
 angular
     .module('myPatients')
     .controller('myPatientsController', ['$scope', function ($scope) {
-        $scope.greetings = 'Hola';
+        $scope.patient = 'patient name';
     }]);
