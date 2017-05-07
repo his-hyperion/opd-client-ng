@@ -1,4 +1,4 @@
-angular.module('opdClient', ['ngMaterial', 'sidebar'])
+angular.module('opdClient', ['ngMaterial', 'sidebar', 'ngRoute'])
     .run(function () {
         console.log('sasas');
     });
