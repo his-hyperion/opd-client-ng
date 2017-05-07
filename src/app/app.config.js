@@ -1,5 +1,5 @@
 angular.module('opdClient')
-    .config(['$routeProvider', function ($routeProvider) {
+    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider
             .when('/dashboard', {
                 templateUrl: 'components/dashboard/dashboard.html'
@@ -7,5 +7,8 @@ angular.module('opdClient')
             .when('/patients', {
                 templateUrl: 'components/my_patients/my_patients.html'
             })
-        // $locationProvider.html5Mode(true);
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
     }])
