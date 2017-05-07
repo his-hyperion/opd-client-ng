@@ -1,5 +1,5 @@
 angular.module('opdClient')
-    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+    .config(['$routeProvider', '$locationProvider', '$mdThemingProvider', function ($routeProvider, $locationProvider, $mdThemingProvider) {
         $routeProvider
             .when('/dashboard', {
                 templateUrl: 'components/dashboard/dashboard.html'
@@ -17,4 +17,11 @@ angular.module('opdClient')
             enabled: true,
             requireBase: false
         });
+
+        $mdThemingProvider.theme('dark-grey')
+            .backgroundPalette('grey')
+            .dark();
+        $mdThemingProvider.theme('docs-dark', 'default')
+            .primaryPalette('yellow')
+            .dark();
     }])
