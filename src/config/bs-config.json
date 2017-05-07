@@ -6,5 +6,6 @@
     "routes": {
       "/assets": "../assets"
     }
-  }
+  },
+  "browser" : ["chrome"]
 }
