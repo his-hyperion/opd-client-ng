@@ -1,7 +1,6 @@
 angular
     .module('newPatients')
     .controller('newPatientsController', ['$scope', '$mdDialog', function ($scope, $mdDialog) {
-        console.log('newPatientsController');
 
         // add new patients
         $scope.AddNewPatients = function () {
