@@ -7,6 +7,9 @@ angular.module('opdClient')
             .when('/patients', {
                 templateUrl: 'components/my_patients/my_patients.html'
             })
+            .when('/newPatients', {
+                templateUrl: 'components/new_patients/new_patients.html'
+            })
         $locationProvider.html5Mode({
             enabled: true,
             requireBase: false
