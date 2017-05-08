@@ -1,5 +1,5 @@
 angular.module('opdClient')
-    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+    .config(['$routeProvider', '$locationProvider', '$mdThemingProvider', function ($routeProvider, $locationProvider, $mdThemingProvider) {
         $routeProvider
             .when('/dashboard', {
                 templateUrl: 'components/dashboard/dashboard.html'
@@ -13,8 +13,19 @@ angular.module('opdClient')
             .when('/patientOverview', {
                 templateUrl: 'components/patients_overview/patients_overview.html'
             })
+            .when('/questionnaire', {
+                templateUrl: 'components/questionnaire/questionnaire.html'
+            })
+            
         $locationProvider.html5Mode({
             enabled: true,
             requireBase: false
         });
+
+        $mdThemingProvider.theme('dark-grey')
+            .backgroundPalette('grey')
+            .dark();
+        $mdThemingProvider.theme('docs-dark', 'default')
+            .primaryPalette('yellow')
+            .dark();
     }])
