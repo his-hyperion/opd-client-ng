@@ -10,6 +10,9 @@ angular.module('opdClient')
             .when('/newPatients', {
                 templateUrl: 'components/new_patients/new_patients.html'
             })
+            .when('/prescribeDrugs', {
+                templateUrl: 'components/prescribe_drugs/prescribe_drugs.html'
+            })
         $locationProvider.html5Mode({
             enabled: true,
             requireBase: false
