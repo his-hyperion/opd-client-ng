@@ -1,1 +1,1 @@
-angular.module('patientOverview', ['ngMaterial', 'ngMessages']);
+angular.module('patientOverview', ['ngMaterial', 'ngMessages','md.data.table']);
