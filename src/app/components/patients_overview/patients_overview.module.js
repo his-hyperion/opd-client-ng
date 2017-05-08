@@ -1,0 +1,1 @@
+angular.module('patientOverview', ['ngMaterial', 'ngMessages','md.data.table']);
