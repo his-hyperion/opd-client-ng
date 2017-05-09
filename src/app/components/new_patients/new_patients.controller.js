@@ -2,10 +2,25 @@ angular
     .module('newPatients')
     .controller('newPatientsController', ['$scope', '$mdDialog', function ($scope, $mdDialog) {
 
+        //datepicker validation not to select future dates
+        $scope.myDate = new Date();
+        $scope.maxDate = new Date(
+            $scope.myDate.getFullYear(),
+            $scope.myDate.getMonth(),
+            $scope.myDate.getDate()
+        );
         // add new patients
         $scope.AddNewPatients = function () {
-            //console.log('add AddNewPatients function');
             $scope.newPatient = {};
+
+            var formData = new FormData();
+            angular.forEach($scope.files, function (obj) {
+                //console.log($scope.files);
+                formData.append('files[]', obj.lfFile);
+
+            });
+            console.log(formData)
+
 
             $scope.newPatient.title = $scope.title;
             $scope.newPatient.firstName = $scope.firstName;
@@ -33,20 +48,29 @@ angular
                     .ok('Got it!')
             );
             console.log($scope.newPatient);
-            // $scope.title = "";
-            // $scope.firstName = "";
-            // $scope.lastName = "";
-            // $scope.dob = "";
-            // $scope.gender = "";
-            // $scope.civilStatus = "";
-            // $scope.nic = "";
-            // $scope.passport = "";
-            // $scope.citizenship = "";
-            // $scope.language = "";
-            // $scope.bloodGroup = "";
-            // $scope.address = "";
-            // $scope.phone = "";
-            // $scope.mobile = "";
-            // $scope.remark = "";
+            $scope.Reset();
+
+        };
+
+        //reset form
+        $scope.Reset = function () {
+            $scope.title = "";
+            $scope.firstName = "";
+            $scope.lastName = "";
+            $scope.dob = "";
+            $scope.gender = "";
+            $scope.civilStatus = "";
+            $scope.nic = "";
+            $scope.passport = "";
+            $scope.citizenship = "";
+            $scope.language = "";
+            $scope.bloodGroup = "";
+            $scope.address = "";
+            $scope.phone = "";
+            $scope.mobile = "";
+            $scope.remark = "";
+
+            $scope.patientForm.$setPristine();
+            $scope.patientForm.$setUntouched();
         }
     }]);
