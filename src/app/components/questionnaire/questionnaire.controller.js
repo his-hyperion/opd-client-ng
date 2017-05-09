@@ -71,6 +71,7 @@ angular
                 // clear form
                 clearForm();
                 clearQuestions();
+                $scope.getQuestionaires();
             });
         }
     }]);
