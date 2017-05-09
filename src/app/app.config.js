@@ -16,6 +16,9 @@ angular.module('opdClient')
             .when('/questionnaire', {
                 templateUrl: 'components/questionnaire/questionnaire.html'
             })
+            .otherwise({
+                redirectTo: '/dashboard'
+            })
             
         $locationProvider.html5Mode({
             enabled: true,
