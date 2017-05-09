@@ -12,16 +12,22 @@
                         <span class="md-headline"><b>Patients Information</b></span>
                     </md-card-title-text>
                 </md-card-title>
-
+                <md-input-container flex="30">
+                    <label>Patients List</label>
+                    <md-select name="patientsList" ng-model="patientsList" ng-click="getPatients()">
+                        <md-option ng-repeat="patient in patients" value="{{patient.firstName}} {{patient.lastName}}" ng-click="selectPatient(patient.firstName)">
+                            {{patient.firstName}} {{patient.lastName}}</md-option>
+                    </md-select>
+                </md-input-container>
                 <div layout-gt-sm="row">
                     <md-input-container flex="5">
                     </md-input-container>
 
                     <md-input-container flex="6">
                         <div class="row">
-                            <h4>{{patientName}} / {{patientGender}} / {{patientAge}} / {{patientMaritualState}}</h4>
-                            <h4> Person ID : {{personID}} </h4>
-                            <h4> DOB : {{DOB}} </h4>
+                            <h4>{{name}} / {{gender}} / {{civilStatus}} / {{bloodGroup}}</h4>
+                            <h4> Person Address : {{address}} </h4>
+                            <h4> DOB : {{dob}} </h4>
                         </div>
                     </md-input-container>
                 </div>
@@ -34,14 +40,14 @@
                         <span class="md-headline"><b>Prescribe Drugs</b></span>
                     </md-card-title-text>
                 </md-card-title>
-                
+
                 <div>
                     <label style="margin:60px;"><b>Drugs</b></label>
                     <label style="margin:4px;"><b>Dosages</b></label>
                     <label style="margin:20px;"><b>Frequency</b></label>
                     <label style="margin:20px; margin-right:120px;"><b>Period</b></label>
                     <md-button class="md-raised md-warn" ng-click="addQuestion()">Refer BNF</md-button>
-                    
+
 
                 </div>
 
@@ -57,46 +63,49 @@
                                 <option value="option-1">{{Methildropa}}</option>
                                 <option value="option-2">{{Captropin}}</option>
                                 <option value="option-3">{{Asprin}}</option>
-                                <option value="option-3">{{Deliphilin}}</option>                                
-                                <option value="option-3">{{Clarithomycin}}</option>
+                                <option value="option-4">{{Deliphilin}}</option>                                
+                                <option value="option-5">{{Clarithomycin}}</option>
                                 
                             </select>
-                            <!--<tt>multipleSelect = {{data.multipleSelect}}</tt><br/>-->
+
 
 
                             <select name="multipleDosages" id="multipleDosages" ng-model="data.multipleDosages" multiple>
                                 <option value="option-1">{{dosage1}}</option>
                                 <option value="option-2">{{dosage2}}</option>
                                 <option value="option-3">{{dosage3}}</option>
-                                <option value="option-3">{{dosage4}}</option>
+                                <option value="option-4">{{dosage4}}</option>
                             </select>
 
                             <select name="multipleFrequency" id="multipleFrequency" ng-model="data.multipleFrequency" multiple>
                                 <option value="option-1">{{frequency2}}</option>
                                 <option value="option-2">{{frequency3}}</option>
                                 <option value="option-3">{{frequencyMorning}}</option>
-                                <option value="option-3">{{frequencyNight}}</option>
+                                <option value="option-4">{{frequencyNight}}</option>
                             </select>
 
                             <select name="multiplePeriod" id="multiplePeriod" ng-model="data.multiplePeriod" multiple>
                                 <option value="option-1">{{period1}}</option>
                                 <option value="option-2">{{period2}}</option>
                                 <option value="option-3">{{period3}}</option>
-                                <option value="option-3">{{period4}}</option>   
+                                <option value="option-4">{{period4}}</option>   
                             </select>
                         </div>
 
                         <table md-table multiple>
 
-                                <tbody md-body>
-                                    <tr md-row>
-                                        <td md-cell>
-                                            <h3></h3>
-                                        </td>
-                                        <td md-cell>
+                            <tbody md-body>
+                                <tr md-row>
+                                    <td md-cell>
+                                        <h3><tt>multipleSelect = {{data.multipleSelect}}</tt><br/></h3>
+                                    </td>
+                                    <td md-cell>
 
-                                        </td>
-                        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </md-input-container>
                 </div>
 
