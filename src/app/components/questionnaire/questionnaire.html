@@ -1,92 +1,156 @@
+<md-toolbar layout="row" class="md-whiteframe-glow-z1 site-content-toolbar">
+    <div class="md-toolbar-tools">
+        <h1>Questionnaires</h1>
+    </div>
+</md-toolbar>
+
 <div class="doc-content" ng-controller="questionnaireController">
     <section class="md-whiteframe-1dp">
         <md-toolbar md-primary class="doc-toolbar">
             <div class="md-toolbar-tools">
-                <h3>Questionnaires</h3>
+                <h3>Adult Patient Questionnaire</h3>
             </div>
         </md-toolbar>
-        <div>
-            <md-content md-theme="docs-dark" layout-padding>
-                <div layout-gt-xs="row">
-                    <md-input-container class="md-block" flex-gt-xs>
-                        <label>Name</label>
-                        <input ng-model="questionnaire.name">
-                    </md-input-container>
-
-                    <md-input-container>
-                        <label>Related to</label>
-                        <md-select ng-model="questionnaire.relatedTo">
-                            <md-option ng-repeat="option in relatedToOptions" value="{{option}}">
-                                {{option}}
-                            </md-option>
-                        </md-select>
-                    </md-input-container>
-                </div>
-            </md-content>
-
-            <md-content layout-padding>
+        <md-tabs md-dynamic-height>
+            <md-tab label="Add questionnaire">
                 <div>
-                    <md-input-container class="md-block">
-                        <label>Remarks</label>
-                        <textarea ng-model="questionnaire.remarks" md-maxlength="150" rows="3" md-select-on-focus></textarea>
-                    </md-input-container>
-                </div>
-            </md-content>
-        </div>
-        <md-toolbar>
-            <div class="md-toolbar-tools">
-                <h3>Add Questions</h3>
-            </div>
-        </md-toolbar>
-        <md-content layout-padding>
-            <div layout-gt-xs="row">
-                <md-input-container class="md-block" flex-gt-xs>
-                    <label>Question text</label>
-                    <input ng-model="question.q_text">
-                </md-input-container>
+                    <md-content md-theme="docs-dark" layout-padding>
+                        <div layout-gt-xs="row">
+                            <md-input-container class="md-block" flex-gt-xs>
+                                <label>Name</label>
+                                <input ng-model="questionnaire.name">
+                            </md-input-container>
 
-                <md-input-container>
-                    <label>Answer type</label>
-                    <md-select ng-model="question.ans_type">
-                        <md-option ng-repeat="type in ans_types" value="{{type}}">
-                            {{type}}
-                        </md-option>
-                    </md-select>
-                </md-input-container>
-            </div>
-            <div layout-gt-xs="row">
-                <md-input-container class="md-block" flex-gt-xs>
-                    <label>Answer</label>
-                    <textarea ng-model="question.answer" md-maxlength="150" rows="2" md-select-on-focus></textarea>
-                </md-input-container>
-            </div>
-            <div>
-                <md-button class="md-raised" ng-click="addQuestion()">Add</md-button>
-            </div>
-        </md-content>
-        <div ng-if="questionCount>0">
-            <md-toolbar layout="row" class="md-hue-3">
-                <div class="md-toolbar-tools">
-                    <span>Questions</span>
-                </div>
-            </md-toolbar>
-            <md-content>
-                <md-list flex>
-                    <md-list-item class="md-3-line" ng-repeat="(key, value) in questions" ng-click="null">
-                        <div class="md-list-item-text" layout="column">
-                            <h3>{{ value.q_text }}</h3>
-                            <h4>{{ value.ans_type }}</h4>
-                            <p>{{ value.answer }}</p>
-                            <md-button class="md-secondary" ng-click="removeQuestion(key)">Remove</md-button>
+                            <md-input-container>
+                                <label>Related to</label>
+                                <md-select ng-model="questionnaire.relatedTo">
+                                    <md-option ng-repeat="option in relatedToOptions" value="{{option}}">
+                                        {{option}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
                         </div>
-                        <md-divider></md-divider>
-                    </md-list-item>
-                </md-list>
-                <md-divider></md-divider>
-                <div>
-                    <md-button class="md-raised md-primary" ng-click="addQuestion()">Save</md-button>
+                    </md-content>
+
+                    <md-content layout-padding>
+                        <div>
+                            <md-input-container class="md-block">
+                                <label>Remarks</label>
+                                <textarea ng-model="questionnaire.remarks" md-maxlength="150" rows="3" md-select-on-focus></textarea>
+                            </md-input-container>
+                        </div>
+                    </md-content>
                 </div>
-            </md-content>
-        </div>
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h3>Add Questions</h3>
+                    </div>
+                </md-toolbar>
+                <md-content layout-padding>
+                    <div layout-gt-xs="row">
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>Question text</label>
+                            <input ng-model="question.q_text">
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>Answer type</label>
+                            <md-select ng-model="question.ans_type">
+                                <md-option ng-repeat="type in ans_types" value="{{type}}">
+                                    {{type}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-xs="row">
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>Answer</label>
+                            <textarea ng-model="question.answer" md-maxlength="150" rows="2" md-select-on-focus></textarea>
+                        </md-input-container>
+                    </div>
+                    <div>
+                        <md-button class="md-raised" ng-click="addQuestion()">Add</md-button>
+                    </div>
+                </md-content>
+                <div ng-if="questionCount>0">
+                    <md-toolbar layout="row" class="md-hue-3">
+                        <div class="md-toolbar-tools">
+                            <span>Questions</span>
+                        </div>
+                    </md-toolbar>
+                    <md-content>
+                        <md-list flex>
+                            <md-list-item class="md-3-line" ng-repeat="(key, value) in questions" ng-click="null">
+                                <div class="md-list-item-text" layout="column">
+                                    <h3>{{ value.q_text }}</h3>
+                                    <h4>{{ value.ans_type }}</h4>
+                                    <p>{{ value.answer }}</p>
+                                    <md-button class="md-secondary" ng-click="removeQuestion(key)">Remove</md-button>
+                                </div>
+                                <md-divider></md-divider>
+                            </md-list-item>
+                        </md-list>
+                        <md-divider></md-divider>
+                        <div>
+                            <md-button class="md-raised md-primary" ng-click="saveQuestionnaire()">Save</md-button>
+                        </div>
+                    </md-content>
+                </div>
+            </md-tab>
+            <md-tab label="View Questionnaires">
+                <div  ng-cloak layout-gt-sm="row" layout="column">
+
+                    <div flex-gt-sm="50" flex>
+
+                        <md-toolbar layout="row" class="md-hue-3">
+                            <div class="md-toolbar-tools">
+                                <span>Questionnaire details</span>
+                            </div>
+                        </md-toolbar>
+
+                        <md-content>
+                            <md-list flex>
+                                <!--<md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader>-->
+                                <md-list-item class="md-3-line" ng-repeat="q_aire in saved_questionnaires" ng-click="selectQuestion(q_aire.questions)">
+                                    <!--<img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />-->
+                                    <div class="md-list-item-text" layout="column">
+                                        <h3>{{ q_aire.name }}</h3>
+                                        <h4>{{ q_aire.relatedTo }}</h4>
+                                        <p>{{ q_aire.remarks }}</p>
+                                    </div>
+                                <md-divider></md-divider>
+                                </md-list-item>
+                            </md-list>
+                        </md-content>
+                    </div>
+                    <md-divider></md-divider>
+                    <div flex-gt-sm="50" flex>
+                        <md-toolbar layout="row" class="md-hue-3">
+                            <div class="md-toolbar-tools">
+                                <span>Questions</span>
+                            </div>
+                        </md-toolbar>
+
+                        <md-content>
+
+                            <md-list class="md-dense" flex>
+                                <!--<md-subheader class="md-no-sticky">3 line item (dense)</md-subheader>-->
+                                <md-list-item class="md-3-line" ng-repeat="q_selct in selected_questions">
+                                    <!--<img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />-->
+                                    <div class="md-list-item-text" layout="column">
+                                        <h3>{{ q_selct.q_text }}</h3>
+                                        <h4>{{ q_selct.ans_type }}</h4>
+                                        <p>{{ q_selct.answer }}</p>
+                                    </div>
+                                <md-divider></md-divider>
+                                </md-list-item>
+                                
+                            </md-list>
+                        </md-content>
+                    </div>
+
+                </div>
+            </md-tab>
+        </md-tabs>
     </section>
 </div>

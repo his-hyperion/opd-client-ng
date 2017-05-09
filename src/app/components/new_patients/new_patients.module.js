@@ -1,1 +1,1 @@
-angular.module('newPatients', ['ngMaterial', 'ngMessages']);
+angular.module('newPatients', ['ngMaterial', 'ngMessages','lfNgMdFileInput']);

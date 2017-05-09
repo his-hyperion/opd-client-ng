@@ -1,1 +1,48 @@
-<h1>Dashboard</h1>
+<md-toolbar layout="row" class="md-whiteframe-glow-z1 site-content-toolbar">
+    <div class="md-toolbar-tools">
+        <h1>Dashboard</h1>
+    </div>
+</md-toolbar>
+
+
+<!--<md-card style="margin: 32px">
+        <md-content>
+            <div ng-controller="dashboardController">
+                <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options"
+                    chart-dataset-override="datasetOverride" chart-click="onClick">
+                </canvas>
+            </div>
+        </md-content>
+</md-card>-->
+
+<div class="doc-content" ng-controller="questionnaireController">
+    <section class="md-whiteframe-1dp">
+        <md-toolbar md-primary class="doc-toolbar">
+            <div class="md-toolbar-tools">
+                <h3>Patients over last week</h3>
+            </div>
+        </md-toolbar>
+        <md-content layout-padding>
+            <div ng-controller="dashboardController">
+                <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options"
+                    chart-dataset-override="datasetOverride" chart-click="onClick">
+                </canvas>
+            </div>
+        </md-content>
+    </section>
+
+    <section class="md-whiteframe-1dp">
+        <!--<md-toolbar md-primary class="doc-toolbar">
+            <div class="md-toolbar-tools">
+                <h3>Patient demographics</h3>
+            </div>
+        </md-toolbar>-->
+        <!--<md-content layout-padding>
+            <div ng-controller="dashboardController">
+                <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options"
+                    chart-dataset-override="datasetOverride" chart-click="onClick">
+                </canvas>
+            </div>
+        </md-content>-->
+    </section>
+</div>

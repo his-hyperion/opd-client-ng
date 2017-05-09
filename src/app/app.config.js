@@ -23,6 +23,9 @@ angular.module('opdClient')
                 templateUrl: 'components/new_examinations/new_examinations.html'
             })
             
+            .otherwise({
+                redirectTo: '/dashboard'
+            })
             
         $locationProvider.html5Mode({
             enabled: true,
