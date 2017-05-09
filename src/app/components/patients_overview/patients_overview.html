@@ -1,3 +1,8 @@
+<md-toolbar layout="row" class="md-whiteframe-glow-z1 site-content-toolbar">
+    <div class="md-toolbar-tools">
+        <h1>Patients Overview</h1>
+    </div>
+</md-toolbar>
 <md-content layout-padding>
     <div>
         <form ng-controller="patientsOverviewController" name="patientOverviewForm" ng-cloak>
@@ -14,44 +19,52 @@
                         <label>Patients List</label>
                         <md-select name="patientsList" ng-model="patientsList" ng-click="getPatients()">
                             <md-option ng-repeat="patient in patients" value="{{patient.firstName}} {{patient.lastName}}" ng-click="selectPatient(patient.firstName)">
-                            {{patient.firstName}} {{patient.lastName}}</md-option>
+                                {{patient.firstName}} {{patient.lastName}}</md-option>
                         </md-select>
                     </md-input-container>
                 </div>
                 <div layout-gt-sm="row">
                     <md-input-container flex="15">
                     </md-input-container>
-                    <md-input-container flex="80">
-                        <div class="row">
-                            <h4> Name : {{name}}</h4>
-                        </div>
-                        <div class="row">
-                            <p> HIN : {{HIN}}</p>
-                        </div>
-                        <div class="row">
-                            <p> Date of Birth : {{dob |date:'dd-MMM-yyyy'}}</p>
-                        </div>
-                        <div class="row">
-                            <p> Gender : {{gender}}</p>
-                        </div>
-                        <div class="row">
-                            <p> Civil Status : {{civilStatus}}</p>
-                        </div>
-                        <div class="row">
-                            <p> Address : {{address}}</p>
-                        </div>
-                        <div class="row">
-                            <p> Phone : {{phone}}</p>
-                        </div>
-                        <div class="row">
-                            <p> Mobile : {{mobile}}</p>
-                        </div>
-                        <div class="row">
-                            <p> Blood Group : {{bloodGroup}}</p>
-                        </div>
-                        <div class="row">
-                            <p> BMI : {{BMI}}</p>
-                        </div>
+                    <md-input-container flex="60">
+                        <table md-table multiple>
+                            <tbody md-body>
+                                <tr md-row>
+                                    <td><h4> Name : </h4></td>
+                                    <td><p>{{name}}</p></td>
+                                </tr>
+                                <tr md-row>
+                                    <td><h4> HIN : </h4></td>
+                                    <td><p>{{HIN}}</p></td>
+                                </tr>
+                                <tr md-row>
+                                    <td><h4> Date of Birth : </h4p></td>
+                                    <td><p>{{dob |date:'dd-MMM-yyyy'}}</p></td>
+                                    <td><h4>Gender : </h4></td>
+                                    <td><p>{{gender}}</p></td>
+                                </tr>
+                                <tr md-row>
+                                    <td><h4>Civil Status : </h4></td>
+                                    <td><p>{{civilStatus}}</p></td>
+                                </tr>
+                                <tr md-row>
+                                    <td><h4>Address : </h4></td>
+                                    <td><p>{{address}}</p></td>
+                                </tr>
+                                <tr md-row>
+                                    <td><h4> Phone : </h4></td>
+                                    <td><p>{{phone}}</p></td>
+                                    <td><h4>Mobile : </h4></td>
+                                    <td><p>{{mobile}}</p></td>
+                                </tr>
+                                <tr md-row>
+                                    <td><h4>Blood Group : </h4></td>
+                                    <td><p>{{bloodGroup}}</p></td>
+                                    <td><h4>BMI : </h4></td>
+                                    <td><p>{{BMI}}</p></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </md-input-container>
                 </div>
             </md-card>
