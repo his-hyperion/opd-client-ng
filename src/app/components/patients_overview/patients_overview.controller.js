@@ -14,6 +14,7 @@ angular
         $scope.selectPatient = function (name) {
             for (var i = 0; i < $scope.patients.length; i++) {
                 if ($scope.patients[i].firstName == name) {
+                    $scope.id = $scope.patients[i]._id;
                     $scope.name = $scope.patients[i].firstName + " " + $scope.patients[i].lastName;
                     $scope.HIN = "12542252";
                     $scope.gender = $scope.patients[i].gender;
