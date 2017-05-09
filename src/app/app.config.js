@@ -19,6 +19,10 @@ angular.module('opdClient')
             .when('/questionnaire', {
                 templateUrl: 'components/questionnaire/questionnaire.html'
             })
+            .when('/newExaminations', {
+                templateUrl: 'components/new_examinations/new_examinations.html'
+            })
+            
             
         $locationProvider.html5Mode({
             enabled: true,

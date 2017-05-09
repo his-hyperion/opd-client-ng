@@ -1,82 +1,102 @@
 <md-content layout-padding>
-    <div ng-controller="prescribeDrugsController">
-        <form name="prscribeDrugsForm">
+    <div>
+        <form ng-controller="prescribeDrugsController">
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline">Patients Information</span>
+                        <span class="md-headline"><b>Patients Information</b></span>
                     </md-card-title-text>
                 </md-card-title>
+
                 <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <!--<label>First name</label>-->
-                        <input name="firstName" ng-model="newPatient.firstName" required ng-pattern="/^[a-zA-Z\s]*$/" >
-                        <div ng-messages="patientForm.firstName.$error"role="alert">
-                            <div ng-message-exp="['required','pattern']">Invalid.</div>
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container flex="6">
+                        <div class="row">
+                            <h4>{{patientName}} / {{patientGender}} / {{patientAge}} / {{patientMaritualState}}</h4>
+                            <h4> Person ID : {{personID}} </h4>
+                            <h4> DOB : {{DOB}} </h4>
                         </div>
                     </md-input-container>
+                </div>
 
-                    <md-input-container class="md-block" flex-gt-sm required>
-                        <label>Last Name</label>
-                        <input ng-model="theMax">
-                    </md-input-container>
+            </md-card>
 
-                    <md-input-container class="md-block">
-                        <label>Address</label>
-                        <input ng-model="user.address">
-                    </md-input-container>
-
-                    <md-input-container class="md-block">
-                        <label>Address</label>
-                        <input ng-model="user.address">
-                    </md-input-container>
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline"><b>Prescribe Drugs</b></span>
+                    </md-card-title-text>
+                </md-card-title>
+                
+                <div>
+                    <label style="margin:60px;"><b>Drugs</b></label>
+                    <label style="margin:4px;"><b>Dosages</b></label>
+                    <label style="margin:20px;"><b>Frequency</b></label>
+                    <label style="margin:20px; margin-right:120px;"><b>Period</b></label>
+                    <md-button class="md-raised md-warn" ng-click="addQuestion()">Refer BNF</md-button>
+                    
 
                 </div>
 
-                <md-input-container class="md-block">
-                    <label>Address</label>
-                    <input ng-model="user.address">
-                </md-input-container>
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
 
-                <md-input-container md-no-float class="md-block">
-                    <input ng-model="user.address2" placeholder="Address 2">
-                </md-input-container>
+                    <md-input-container flex="6">
+
+                        <div class="row">
+
+                            <select name="multipleSelect" id="multipleSelect" ng-model="data.multipleSelect" multiple>
+                                <option value="option-1">{{Methildropa}}</option>
+                                <option value="option-2">{{Captropin}}</option>
+                                <option value="option-3">{{Asprin}}</option>
+                                <option value="option-3">{{Deliphilin}}</option>                                
+                                <option value="option-3">{{Clarithomycin}}</option>
+                                
+                            </select>
+                            <!--<tt>multipleSelect = {{data.multipleSelect}}</tt><br/>-->
+
+
+                            <select name="multipleDosages" id="multipleDosages" ng-model="data.multipleDosages" multiple>
+                                <option value="option-1">{{dosage1}}</option>
+                                <option value="option-2">{{dosage2}}</option>
+                                <option value="option-3">{{dosage3}}</option>
+                                <option value="option-3">{{dosage4}}</option>
+                            </select>
+
+                            <select name="multipleFrequency" id="multipleFrequency" ng-model="data.multipleFrequency" multiple>
+                                <option value="option-1">{{frequency2}}</option>
+                                <option value="option-2">{{frequency3}}</option>
+                                <option value="option-3">{{frequencyMorning}}</option>
+                                <option value="option-3">{{frequencyNight}}</option>
+                            </select>
+
+                            <select name="multiplePeriod" id="multiplePeriod" ng-model="data.multiplePeriod" multiple>
+                                <option value="option-1">{{period1}}</option>
+                                <option value="option-2">{{period2}}</option>
+                                <option value="option-3">{{period3}}</option>
+                                <option value="option-3">{{period4}}</option>   
+                            </select>
+                        </div>
+
+                        <table md-table multiple>
+
+                                <tbody md-body>
+                                    <tr md-row>
+                                        <td md-cell>
+                                            <h3></h3>
+                                        </td>
+                                        <td md-cell>
+
+                                        </td>
+                        
+                    </md-input-container>
+                </div>
+
             </md-card>
 
-            <div layout-gt-sm="row">
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>City</label>
-                    <input ng-model="user.city">
-                </md-input-container>
-
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>State</label>
-                    <md-select ng-model="user.state">
-                        <md-option ng-repeat="state in states" value="{{state.abbrev}}">
-                            {{state.abbrev}}
-                        </md-option>
-                    </md-select>
-                </md-input-container>
-
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Postal Code</label>
-                    <input name="postalCode" ng-model="user.postalCode" placeholder="12345" required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
-
-                    <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
-                        <div ng-message="required" class="my-message">You must supply a postal code.</div>
-                        <div ng-message="pattern" class="my-message">That doesn't look like a valid postal code.
-                        </div>
-                        <div ng-message="md-maxlength" class="my-message">
-                            Don't use the long version silly...we don't need to be that specific...
-                        </div>
-                    </div>
-                </md-input-container>
-            </div>
-
-            <md-input-container class="md-block">
-                <label>Biography</label>
-                <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-            </md-input-container>
 
         </form>
     </div>

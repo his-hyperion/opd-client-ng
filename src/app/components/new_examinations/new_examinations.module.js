@@ -1,0 +1,1 @@
+angular.module('newExaminations', ['ngMaterial' , 'ngMessages' , 'md.data.table']);

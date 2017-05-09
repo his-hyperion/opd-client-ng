@@ -1,0 +1,216 @@
+<md-content layout-padding>
+    <div>
+        <form name="examForm" ng-controller="newExaminationsController">
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline"><b>Add Examinations</b></span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container flex="6">
+                        <div class="row">
+                            <!--<h4>{{patientName}} / {{patientGender}} / {{patientAge}} / {{patientMaritualState}}</h4>
+                            <h4> Person ID : {{personID}} </h4>
+                            <h4> DOB : {{DOB}} </h4>-->
+                            <table md-table multiple>
+
+                                <tbody md-body>
+                                    <tr md-row>
+                                        <td md-cell>
+                                            <h3>Exam Date Time</h3>
+                                        </td>
+                                        <td md-cell>
+                                            <h3><span>{{CurrentDate | date:'dd/MM/yyyy'}}</span><span></span><span></span> <span>{{CurrentDate | date:'HH:mm'}}</span></h3>
+                                        </td>
+                                    </tr>
+
+                                    <tr md-row>
+                                        <td md-cell>
+                                            <h3>Height in cm</h3>
+                                        </td>
+                                        <td md-cell>
+                                            <h3>
+                                                <md-input-container class="md-block">
+                                                   
+                                                    <input required type="number" step="any" name="rate" ng-model="examination.height" min="0" max="300" value="0" />
+
+                                                    <!--<div ng-messages="projectForm.rate.$error" multiple md-auto-hide="false">
+                                                        <div ng-message="required">
+                                                            <h6>Required.<h6>
+                                                        </div>
+
+                                                        <div ng-message="min">
+                                                            minimum height required
+                                                        </div>
+
+                                                        <div ng-message="pattern">
+                                                            You should charge exactly $1,234.
+                                                        </div>
+
+                                                        <div ng-message="max">
+                                                            maximum height required
+                                                        </div>
+                                                    </div>-->
+                                                </md-input-container>
+                                            </h3>
+
+                                        </td>
+                                    </tr>
+                                    <tr md-row>
+                                        <td md-cell>
+                                            <h3>Weight in Kg</h3>
+                                        </td>
+                                        <td md-cell>
+                                            <h3>
+                                                <md-input-container class="md-block">
+                                                   
+                                                    <input required type="number" step="any" name="rate" ng-model="examination.weight" min="10" max="500" value="0" />  
+
+                                                    <!--<div ng-messages="projectForm.rate.$error" multiple md-auto-hide="false">
+                                                        <div ng-message="required">
+                                                            <h6>Required.<h6>
+                                                        </div>
+
+                                                        <div ng-message="min">
+                                                            minimum height required
+                                                        </div>
+
+                                                        <div ng-message="pattern">
+                                                            You should charge exactly $1,234.
+                                                        </div>
+
+                                                        <div ng-message="max">
+                                                            maximum height required
+                                                        </div>
+                                                    </div>-->
+                                                </md-input-container>
+                                            </h3>
+                                        </td>
+                                    </tr>
+                                    <tr md-row>
+                                        <td md-cell>
+                                            <h3>BMI</h3>
+                                        </td>
+                                        <td md-cell>
+                                            <div ng-model="examination.BMI">
+                                                <h3>{{ (examination.weight / ( examination.height * examination.height)) | number }}</h3>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr md-row>
+                                        <td md-cell>
+                                            <h3>Temperature in F`</h3>
+                                        </td>
+                                        <td md-cell>
+                                            <h3>
+                                                <md-input-container class="md-block">
+                                                   
+                                                    <input required type="number" step="any" name="rate" ng-model="examination.temp" min="10" max="500" value="0" />  
+
+                                                    <!--<div ng-messages="projectForm.rate.$error" multiple md-auto-hide="false">
+                                                        <div ng-message="required">
+                                                            <h6>Required.<h6>
+                                                        </div>
+
+                                                        <div ng-message="min">
+                                                            minimum height required
+                                                        </div>
+
+                                                        <div ng-message="pattern">
+                                                            You should charge exactly $1,234.
+                                                        </div>
+
+                                                        <div ng-message="max">
+                                                            maximum height required
+                                                        </div>
+                                                    </div>-->
+                                                </md-input-container>
+                                            </h3>
+                                        </td>
+                                    </tr>
+                                    <tr md-row>
+                                        <td md-cell>
+                                            <h3>Systolic Blood Preasure</h3>
+                                        </td>
+                                        <td md-cell>
+                                            <h3>
+                                                <md-input-container class="md-block">
+                                                   
+                                                    <input required type="number" step="any" name="rate" ng-model="examination.SysBloodPresure" min="10" max="500" value="0" />  
+
+                                                    <!--<div ng-messages="projectForm.rate.$error" multiple md-auto-hide="false">
+                                                        <div ng-message="required">
+                                                            <h6>Required.<h6>
+                                                        </div>
+
+                                                        <div ng-message="min">
+                                                            minimum height required
+                                                        </div>
+
+                                                        <div ng-message="pattern">
+                                                            You should charge exactly $1,234.
+                                                        </div>
+
+                                                        <div ng-message="max">
+                                                            maximum height required
+                                                        </div>
+                                                    </div>-->
+                                                </md-input-container>
+                                            </h3>
+                                        </td>
+                                    </tr>
+                                    <tr md-row>
+                                        <td md-cell>
+                                            <h3>Diastolic Blood Preasure</h3>
+                                        </td>
+                                        <td md-cell>
+                                            <h3>
+                                                <md-input-container class="md-block">
+                                                   
+                                                    <input required type="number" step="any" name="rate" ng-model="examination.DiasBloodPresure" min="10" max="500" value="0" />  
+
+                                                    <!--<div ng-messages="projectForm.rate.$error" multiple md-auto-hide="false">
+                                                        <div ng-message="required">
+                                                            <h6>Required.<h6>
+                                                        </div>
+
+                                                        <div ng-message="min">
+                                                            minimum height required
+                                                        </div>
+
+                                                        <div ng-message="pattern">
+                                                            You should charge exactly $1,234.
+                                                        </div>
+
+                                                        <div ng-message="max">
+                                                            maximum height required
+                                                        </div>
+                                                    </div>-->
+                                                </md-input-container>
+                                            </h3>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <md-button class="md-raised md-primary">Save</md-button>
+                            <md-button class="md-raised" ng-click="resetFunction()">Cancel</md-button>
+                            
+
+                        </div>
+                    </md-input-container>
+                </div>
+
+            </md-card>
+
+           
+
+
+        </form>
+    </div>
+</md-content>
