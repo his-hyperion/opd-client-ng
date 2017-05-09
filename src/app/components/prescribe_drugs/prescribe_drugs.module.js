@@ -1,0 +1,1 @@
+angular.module('prescribeDrugs', ['ngMaterial' , 'ngMessages' , 'md.data.table']);
