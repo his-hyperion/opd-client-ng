@@ -14,6 +14,23 @@ angular
             'answer': ''
         }
 
+        $scope.saved_questionnaires = [];
+        $scope.selected_questions = [];
+
+        $scope.selectQuestion = function (slct_q) {
+            $scope.selected_questions = slct_q;
+            console.log(slct_q);
+        }
+
+        $scope.getQuestionaires = function() {
+            $http.get('http://localhost:8080/api/questionnaires')
+            .then(function (response) {
+                $scope.saved_questionnaires = response.data;
+            });
+        }
+
+        $scope.getQuestionaires();
+
         $scope.addQuestion = function () {
             var index = Object.keys($scope.questions).length;
             $scope.questionCount = index + 1;
