@@ -1,41 +1,54 @@
 angular.module('opdClient')
-    .config(['$routeProvider', '$locationProvider', '$mdThemingProvider', function ($routeProvider, $locationProvider, $mdThemingProvider) {
-        $routeProvider
-            .when('/dashboard', {
+    .config(['$stateProvider', '$mdThemingProvider',
+        function ($stateProvider, $mdThemingProvider) {
+            var dashboardState = {
+                name: 'dashboard',
+                url: 'dashboard',
                 templateUrl: 'components/dashboard/dashboard.html'
-            })
-            .when('/patients', {
+            };
+            var patientState = {
+                name: 'patients',
+                url: 'patients',
                 templateUrl: 'components/my_patients/my_patients.html'
-            })
-            .when('/newPatients', {
+            };
+            var newPatientState = {
+                name: 'newPatients',
+                url: 'newPatients',
                 templateUrl: 'components/new_patients/new_patients.html'
-            })
-            .when('/prescribeDrugs', {
+            };
+            var drugPrescriptionState = {
+                name: 'prescribeDrugs',
+                url: 'prescribeDrugs',
                 templateUrl: 'components/prescribe_drugs/prescribe_drugs.html'
-            })
-            .when('/patientOverview', {
+            };
+            var patientOverviewState = {
+                name: 'patientOverview',
+                url: 'patientOverview',
                 templateUrl: 'components/patients_overview/patients_overview.html'
-            })
-            .when('/questionnaire', {
+            };
+            var questionnaireState = {
+                name: 'questionnaire',
+                url: 'questionnaire',
                 templateUrl: 'components/questionnaire/questionnaire.html'
-            })
-            .when('/newExaminations', {
+            };
+            var newExaminationsState = {
+                name: 'newExaminations',
+                url: 'newExaminations',
                 templateUrl: 'components/new_examinations/new_examinations.html'
-            })
-            
-            .otherwise({
-                redirectTo: '/dashboard'
-            })
-            
-        $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
-        });
+            };
 
-        $mdThemingProvider.theme('dark-grey')
-            .backgroundPalette('grey')
-            .dark();
-        $mdThemingProvider.theme('docs-dark', 'default')
-            .primaryPalette('yellow')
-            .dark();
-    }])
+            $stateProvider.state(dashboardState);
+            $stateProvider.state(patientState);
+            $stateProvider.state(newPatientState);
+            $stateProvider.state(drugPrescriptionState);
+            $stateProvider.state(patientOverviewState);
+            $stateProvider.state(questionnaireState);
+            $stateProvider.state(newExaminationsState);
+
+            $mdThemingProvider.theme('dark-grey')
+                .backgroundPalette('grey')
+                .dark();
+            $mdThemingProvider.theme('docs-dark', 'default')
+                .primaryPalette('yellow')
+                .dark();
+        }])
