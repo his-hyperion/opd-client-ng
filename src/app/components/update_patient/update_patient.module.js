@@ -1,0 +1,1 @@
+angular.module('updatePatients', ['ngMaterial', 'ngMessages','lfNgMdFileInput']);
