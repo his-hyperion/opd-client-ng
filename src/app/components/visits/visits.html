@@ -1,0 +1,86 @@
+<md-toolbar layout="row" class="md-whiteframe-glow-z1 site-content-toolbar">
+    <div class="md-toolbar-tools">
+        <h1>New Visit</h1>
+    </div>
+</md-toolbar>
+<md-content layout-padding>
+    <div>
+        <form ng-controller="visitsController" name="visitsForm" ng-cloak>
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Visits Details</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+                
+                    <md-input-container class="md-block" flex="35">
+                        <label>Complaints/Injury</label>
+                        <input name="complaint" ng-model="visit.complaint" required ng-pattern="/^[a-zA-Z\s]*$/">
+                        <div ng-messages="visitsForm.complaint.$error" role="alert">
+                            <div ng-message="pattern">Invalid. Enter only letters</div>
+                            <div ng-message="required">Required</div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container flex="35">
+                        <label>Visit Type</label>
+                        <md-select name="visitType" ng-model="visit.visitType" required>
+                            <md-option value="OPD">OPD</md-option>
+                            <md-option value="Lab">Lab</md-option>
+                            <md-option value="Examination">Examination</md-option>
+                        </md-select>
+                        <div ng-messages="visitsForm.visitType.$error" role="alert">
+                            <div ng-message="required">Required</div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex="65">
+                        <label>Remark</label>
+                        <input name="remark" ng-model="visit.remark">
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex="35">
+                        <label>Date and Time</label>
+                        <input name="dateTime" ng-model="visit.dateTime" disabled>
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex="35">
+                        <label>Doctor</label>
+                        <input name="doctor" ng-model="visit.doctor" disabled>
+                    </md-input-container>
+                </div>
+              
+              <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+                    <md-button class="md-raised md-warn" ng-click="Reset()">Clear</md-button>
+                    <md-button class="md-raised md-primary" ng-click="AddVisit()" ng-disabled="visitsForm.$invalid">Submit</md-button>
+                </div>
+
+            </md-card>
+        </form>
+    </div>
+</md-content>

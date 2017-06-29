@@ -5,7 +5,7 @@
 </md-toolbar>
 <md-content layout-padding>
     <div>
-        <form ng-controller="patientsOverviewController" name="patientOverviewForm" ng-cloak>
+        <form ng-controller="patientsOverviewForNurseController" name="patientOverviewForm" ng-cloak>
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
@@ -117,6 +117,9 @@
                                 <label>Search</label>
                                 <input name="searchAllergy" ng-model="searchAllergy">
                             </md-input-container>
+                            <md-input-container class="md-block" flex="35">
+                                <md-button class="md-raised md-primary" ng-click="null" ui-sref="allergies">Add New Allergies</md-button>
+                            </md-input-container>
                             <table md-table multiple>
                                 <thead md-head>
                                     <tr md-row>
@@ -136,122 +139,30 @@
                         </md-content>
                     </md-tab>
 
-                    <md-tab label="Visits" ng-click="getVisits()">
-                        <md-content class="md-padding">
-                            <md-input-container class="md-block" flex="35">
-                                <label>Search</label>
-                                <input name="searchVisits" ng-model="searchVisits">
-                            </md-input-container>
-                            <md-input-container class="md-block" flex="35">
-                                <md-button class="md-raised md-primary" ng-click="null" ui-sref="visits">Add New Visits</md-button>
-                            </md-input-container>
-                            <table md-table multiple>
-                                <thead md-head>
-                                    <tr md-row>
-                                        <th md-column>Visit Type</th>
-                                        <th md-column>Visit Number</th>
-                                        <th md-column>Date and Time</th>
-                                        <th md-column>Complaint</th>
-                                        <th md-column>Remark</th>
-                                    </tr>
-                                </thead>
-                                <tbody md-body>
-                                    <tr md-row ng-repeat="visit in visits | filter:searchVisits">
-                                        <td md-cell>{{visit.visitType}}</td>
-                                        <td md-cell>{{visit.visitNo}}</td>
-                                        <td md-cell>{{visit.dateTime}}</td>
-                                        <td md-cell>{{visit.complaint}}</td>
-                                        <td md-cell>{{visit.remark}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </md-content>
-                    </md-tab>
-
-                    <md-tab label="Examinations" ng-click="getExaminations()">
-                        <md-content class="md-padding">
-                            <md-input-container class="md-block" flex="35">
-                                <label>Search</label>
-                                <input name="searchExam" ng-model="searchExam">
-                            </md-input-container>
-                            <md-input-container class="md-block" flex="35">
-                                <md-button class="md-raised md-primary">Add New Examinations</md-button>
-                            </md-input-container>
-                            <table md-table multiple>
-                                <thead md-head>
-                                    <tr md-row>
-                                        <th md-column>Date</th>
-                                        <th md-column>Weight (kg)</th>
-                                        <th md-column>Height (cm)</th>
-                                        <th md-column>Systolic Blood Pressure</th>
-                                        <th md-column>Diastolic Blood Pressure</th>
-                                        <th md-column>Temperature</th>
-                                    </tr>
-                                </thead>
-                                <tbody md-body>
-                                    <tr md-row ng-repeat="examination in examinations | filter:searchExam">
-                                        <td md-cell>{{examination.date}}</td>
-                                        <td md-cell>{{examination.weight}}</td>
-                                        <td md-cell>{{examination.height}}</td>
-                                        <td md-cell>{{examination.SBP}}</td>
-                                        <td md-cell>{{examination.DBP}}</td>
-                                        <td md-cell>{{examination.temperature}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </md-content>
-                    </md-tab>
-
-                    <md-tab label="Lab Orders" ng-click="getLabs()">
-                        <md-content class="md-padding">
-                            <md-input-container class="md-block" flex="35">
-                                <label>Search</label>
-                                <input name="searchLab" ng-model="searchLab">
-                            </md-input-container>
-                            <md-input-container class="md-block" flex="35">
-                                <md-button class="md-raised md-primary">Add New Labs</md-button>
-                            </md-input-container>
-                            <table md-table multiple>
-                                <thead md-head>
-                                    <tr md-row>
-                                        <th md-column>Name</th>
-                                        <th md-column>Date</th>
-                                        <th md-column>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody md-body>
-                                    <tr md-row ng-repeat="lab in labs | filter:searchLab">
-                                        <td md-cell>{{lab.name}}</td>
-                                        <td md-cell>{{lab.date}}</td>
-                                        <td md-cell>{{lab.status}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </md-content>
-                    </md-tab>
-
                     <md-tab label="Notes" ng-click="getNotes()">
-                        <md-input-container class="md-block" flex="35">
-                            <label>Search</label>
-                            <input name="searchNote" ng-model="searchNote">
-                        </md-input-container>
-                        <md-input-container class="md-block" flex="35">
-                            <md-button class="md-raised md-primary" ng-click="null" ui-sref="notes">Add Notes</md-button>
-                        </md-input-container>
-                        <table md-table multiple>
-                            <thead md-head>
-                                <tr md-row>
-                                    <th md-column>Date</th>
-                                    <th md-column>Note</th>
-                                </tr>
-                            </thead>
-                            <tbody md-body>
-                                <tr md-row ng-repeat="note in notes | filter:searchNote">
-                                    <td md-cell>{{note.date}}</td>
-                                    <td md-cell>{{note.note}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <md-content class="md-padding">
+                            <md-input-container class="md-block" flex="35">
+                                <label>Search</label>
+                                <input name="searchNote" ng-model="searchNote">
+                            </md-input-container>
+                            <md-input-container class="md-block" flex="35">
+                                <md-button class="md-raised md-primary" ng-click="null" ui-sref="notes">Add Notes</md-button>
+                            </md-input-container>
+                            <table md-table multiple>
+                                <thead md-head>
+                                    <tr md-row>
+                                        <th md-column>Date</th>
+                                        <th md-column>Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody md-body>
+                                    <tr md-row ng-repeat="note in notes | filter:searchNote">
+                                        <td md-cell>{{note.date}}</td>
+                                        <td md-cell>{{note.note}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </md-content>
                     </md-tab>
 
                     <md-tab label="Attachments" ng-click="getAttchments()">
@@ -259,6 +170,9 @@
                             <md-input-container class="md-block" flex="35">
                                 <label>Search</label>
                                 <input name="searchAttc" ng-model="searchAttc">
+                            </md-input-container>
+                            <md-input-container class="md-block" flex="35">
+                                <md-button class="md-raised md-primary" ng-click="null" ui-sref="attachments">Add Attachments</md-button>
                             </md-input-container>
                             <table md-table multiple>
                                 <thead md-head>
@@ -284,8 +198,8 @@
                             </table>
                         </md-content>
                     </md-tab>
+                    
                 </md-tabs>
-
             </md-card>
         </form>
     </div>

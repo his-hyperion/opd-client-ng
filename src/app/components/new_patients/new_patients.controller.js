@@ -1,6 +1,6 @@
 angular
     .module('newPatients')
-    .controller('newPatientsController', ['$scope', '$mdDialog', 'new_patientsService', function ($scope, $mdDialog,new_patientsService) {
+    .controller('newPatientsController', ['$scope', '$mdDialog', 'new_patientsService', function ($scope, $mdDialog, new_patientsService) {
 
         //datepicker validation not to select future dates
         $scope.myDate = new Date();

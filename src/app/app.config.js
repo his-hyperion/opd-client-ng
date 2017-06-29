@@ -41,6 +41,26 @@ angular.module('opdClient')
                 url: 'updatePatient',
                 templateUrl: 'components/update_patient/update_patient.html'
             };
+            var visitsState = {
+                name: 'visits',
+                url: 'visits',
+                templateUrl: 'components/visits/visits.html'
+            };
+            var patientOverviewForNurseState = {
+                name: 'patientOverviewForNurse',
+                url: 'patientOverviewForNurse',
+                templateUrl: 'components/patients_overview_forNurse/patients_overview_forNurse.html'
+            };
+            var allergyState = {
+                name: 'allergies',
+                url: 'allergies',
+                templateUrl: 'components/allergies/allergies.html'
+            };
+            var noteState = {
+                name: 'notes',
+                url: 'notes',
+                templateUrl: 'components/notes/notes.html'
+            };
 
             $stateProvider.state(dashboardState);
             $stateProvider.state(patientState);
@@ -50,6 +70,10 @@ angular.module('opdClient')
             $stateProvider.state(questionnaireState);
             $stateProvider.state(newExaminationsState);
             $stateProvider.state(updatePatientState);
+            $stateProvider.state(visitsState);
+            $stateProvider.state(patientOverviewForNurseState);
+            $stateProvider.state(allergyState);
+            $stateProvider.state(noteState);
 
             $mdThemingProvider.theme('dark-grey')
                 .backgroundPalette('grey')

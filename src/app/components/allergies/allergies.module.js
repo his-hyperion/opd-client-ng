@@ -1,0 +1,1 @@
+angular.module('alergies', ['ngMaterial', 'ngMessages','lfNgMdFileInput']);
