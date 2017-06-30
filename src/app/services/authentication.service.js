@@ -1,6 +1,6 @@
 angular.module('opdClient')
     .factory('authenticationService', function($http) {
-        var baseURL = 'http://52.15.99.209:8080/authenticate';
+        var baseURL = 'http://localhost:8080/authenticate';
         var loggedInUser;
         var authenticated = false;
 
