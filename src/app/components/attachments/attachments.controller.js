@@ -1,19 +1,32 @@
 angular
     .module('attachments')
-    .controller('attachmentsController', ['$scope', '$mdDialog', 'selectedPatientService', function ($scope, $mdDialog, selectedPatientService) {
+    .controller('attachmentsController', ['$scope', '$mdDialog', 'selectedPatientService', 'attachmentsService', function ($scope, $mdDialog, selectedPatientService, attachmentsService) {
 
         $scope.attachments = {};
-        $scope.patientID = selectedPatientService.getId();
-        console.log($scope.patientID);
+        $scope.attachments.patientID = selectedPatientService.getId();
         $scope.attachments.attBy = "A.T.Silva";
 
-        $scope.click = function (scope, element, attrs) {
-            const input = element.find('#fileInput');
-            const button = element.find('#uploadButton');
+        // add attachments
+        $scope.AddAttachments = function () {
+            var formData = new FormData();
+            angular.forEach($scope.files, function (obj) {
+                $scope.attachments.file = $scope.files[0].lfFileName;
+                formData.append('files[]', obj.lfFile);
+            });
 
-            if (input.length && button.length) {
-                button.click((e) => input.click());
-            }
+            attachmentsService.addNewAttachments($scope.attachments)
+                .then(function (response) {
+                    $mdDialog.show(
+                        $mdDialog.alert()
+                            .parent(angular.element(document.querySelector('#popupContainer')))
+                            .clickOutsideToClose(true)
+                            .title('Success')
+                            .textContent('Attachment successfuly added to the database.')
+                            .ariaLabel('Alert Dialog Demo')
+                            .ok('Got it!')
+                    );
+                    $scope.Reset();
+                }); 
         }
         //reset form
         $scope.Reset = function () {
@@ -24,8 +37,5 @@ angular
 
         }
 
-        $scope.AddAttachments = function () {
-            console.log($scope.attachments.file)
-        }
 
     }]);
