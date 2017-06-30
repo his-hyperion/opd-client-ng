@@ -47,7 +47,7 @@ angular.module('opdClient')
                 templateUrl: 'components/new_examinations/new_examinations.html'
             };
             var updatePatientState = {
-                name: 'updatePatient',
+                name: 'opd.updatePatient',
                 url: '/updatePatient',
                 templateUrl: 'components/update_patient/update_patient.html'
             };
