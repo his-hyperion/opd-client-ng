@@ -1,7 +1,7 @@
 angular
     .module('newPatients')
     .factory("patientsService", ['$http', function ($http) {
-        var baseURL = "http://localhost:8080/patients/";
+        var baseURL = "http://52.15.99.209:8080/patients/";
 
         return {
             addNewPatient: function (newPatient) {

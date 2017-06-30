@@ -1,7 +1,7 @@
 angular
     .module('alergies')
     .factory("allergyService", ['$http', function ($http) {
-        var baseURL = "http://localhost:8080/allergies/";
+        var baseURL = "http://52.15.99.209:8080/allergies/";
 
         return {
             addNewAllergy: function (newAllergy) {

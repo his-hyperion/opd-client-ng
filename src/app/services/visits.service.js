@@ -1,7 +1,7 @@
 angular
     .module('visits')
     .factory("visitsService", ['$http', function ($http) {
-        var baseURL = "http://localhost:8080/visits/";
+        var baseURL = "http://52.15.99.209:8080/visits/";
 
         return {
             addNewVisit: function (newVisit) {
