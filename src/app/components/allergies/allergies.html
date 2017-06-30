@@ -1,0 +1,64 @@
+<md-toolbar layout="row" class="md-whiteframe-glow-z1 site-content-toolbar">
+    <div class="md-toolbar-tools">
+        <h1>Add Allergy</h1>
+    </div>
+</md-toolbar>
+<md-content layout-padding>
+    <div>
+        <form ng-controller="allergiesController" name="allergiesForm" ng-cloak>
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Allergy Details</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+                
+                    <md-input-container class="md-block" flex="35">
+                        <label>Allergy</label>
+                        <input name="allergy" ng-model="allergy.allergy" required>
+                        <div ng-messages="allergiesForm.complaint.$error" role="alert">
+                            <div ng-message="required">Required</div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container flex="35">
+                        <label>Status</label>
+                        <md-select name="status" ng-model="allergy.status" required>
+                            <md-option value="Past">Past</md-option>
+                            <md-option value="New">New</md-option>
+                        </md-select>
+                        <div ng-messages="allergiesForm.visitType.$error" role="alert">
+                            <div ng-message="required">Required</div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex="65">
+                        <label>Remark</label>
+                        <input name="remark" ng-model="allergy.remark">
+                    </md-input-container>
+                </div>
+          
+              <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+                    <md-button class="md-raised md-warn" ng-click="Reset()">Clear</md-button>
+                    <md-button class="md-raised md-primary" ng-click="AddAllergy()" ng-disabled="allergiesForm.$invalid">Submit</md-button>
+                </div>
+
+            </md-card>
+        </form>
+    </div>
+</md-content>

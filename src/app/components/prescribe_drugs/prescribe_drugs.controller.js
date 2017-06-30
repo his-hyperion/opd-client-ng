@@ -5,7 +5,7 @@ angular
         $scope.patients = []
 
         $scope.getPatients = function () {
-            $http.get('http://localhost:8080/api/patients')
+            $http.get('http://52.15.99.209:8080/api/patients')
                 .then(function (response) {
                     $scope.patients = response.data;
                     //console.log($scope.patients[0].firstName);

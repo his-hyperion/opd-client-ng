@@ -1,6 +1,6 @@
 angular
-    .module('patientOverview')
-    .controller('patientsOverviewController', ['$scope', 'patientsService', 'selectedPatientService', 'visitsService', 'allergyService', 'notesService', 'attachmentsService',  function ($scope, patientsService, selectedPatientService, visitsService, allergyService, notesService, attachmentsService) {
+    .module('patientOverviewForNurse')
+    .controller('patientsOverviewForNurseController', ['$scope', 'patientsService', 'selectedPatientService', 'allergyService', 'notesService', 'attachmentsService', function ($scope, patientsService, selectedPatientService, allergyService, notesService, attachmentsService) {
 
         $scope.patients = []
 
@@ -27,48 +27,9 @@ angular
                     $scope.BMI = "Not Calculated";
                 }
             }
-             $scope.getAllergies();
+            $scope.getAllergies();
         };
 
-        $scope.getVisits = function () {
-            $scope.visits = [];
-            visitsService.getVisitsByPatient($scope.id)
-                .then(function(response){
-                    $scope.visits = response.data;
-                })
-
-        };
-
-        $scope.getExaminations = function () {
-            $scope.examinations = [{
-                date: "2017-05-08",
-                weight: "78",
-                height: "168",
-                SBP: "33",
-                DBP: "42",
-                temperature: "33"
-            },
-            {
-                date: "2017-04-23",
-                weight: "78",
-                height: "168",
-                SBP: "35",
-                DBP: "42",
-                temperature: "28"
-            }]
-        };
-        $scope.getLabs = function () {
-            $scope.labs = [{
-                name: "AAA",
-                date: "2017-05-08",
-                status: "Report issued"
-            },
-            {
-                name: "BBB",
-                date: "2017-04-23",
-                status: "Testing",
-            }]
-        };
         $scope.getAllergies = function () {
             $scope.allergies = [];
             allergyService.getallergiesByPatient($scope.id)
@@ -92,7 +53,7 @@ angular
                     $scope.attachments = response.data;
                 })
         };
-
+        
         $scope.setPaient=function(){
             //console.log($scope.id);
             selectedPatientService.setId($scope.id);

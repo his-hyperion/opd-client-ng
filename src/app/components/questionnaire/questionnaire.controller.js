@@ -23,7 +23,7 @@ angular
         }
 
         $scope.getQuestionaires = function() {
-            $http.get('http://localhost:8080/api/questionnaires')
+            $http.get('http://52.15.99.209:8080/questionnaires')
             .then(function (response) {
                 $scope.saved_questionnaires = response.data;
             });
@@ -66,7 +66,7 @@ angular
                 }
             }
 
-            $http.post('http://localhost:8080/api/questionnaires', payload)
+            $http.post('http://52.15.99.209:8080/questionnaires', payload)
             .then(function (response) {
                 // clear form
                 clearForm();

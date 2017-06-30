@@ -1,0 +1,1 @@
+angular.module('attachments', ['ngMaterial', 'ngMessages','lfNgMdFileInput']);
