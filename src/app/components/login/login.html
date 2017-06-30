@@ -5,7 +5,7 @@
 </md-toolbar>
 
 
-<md-content class="md-padding" layout-xs="column" layout="row" layout-align="center">
+<md-content class="md-padding" layout-xs="column" layout="row" layout-align="center" ng-controller="loginController">
     <div flex-xs flex-gt-xs="40" layout="column">
         <md-card>
             <img src="assets/img/ms_login.jpg" class="md-card-image" alt="Washed Out">
@@ -28,7 +28,7 @@
                     </div>
                 </md-card-content>
                 <md-card-actions layout="row" layout-align="start center">
-                    <md-button type="submit" class="md-raised md-primary" ui-sref="opd.dashboard">Authenticate</md-button>
+                    <md-button type="submit" class="md-raised md-primary" ng-click="authenticate(user)">Authenticate</md-button>
                 </md-card-actions>
             </form>
         </md-card>
