@@ -6,42 +6,49 @@ angular.module('opdClient')
                 url: '/login',
                 templateUrl: 'components/login/login.html'
             };
+            var templateState = {
+                name: 'opd',
+                url: '/opd',
+                templateUrl: 'components/opd/opd.html'
+            };
             var dashboardState = {
-                name: 'dashboard',
+                name: 'opd.dashboard',
                 url: '/dashboard',
                 templateUrl: 'components/dashboard/dashboard.html'
             };
             var patientState = {
-                name: 'patients',
+                name: 'opd.patients',
                 url: '/patients',
                 templateUrl: 'components/my_patients/my_patients.html'
             };
             var newPatientState = {
-                name: 'newPatients',
+                name: 'opd.newPatients',
                 url: '/newPatients',
                 templateUrl: 'components/new_patients/new_patients.html'
             };
             var drugPrescriptionState = {
-                name: 'prescribeDrugs',
+                name: 'opd.prescribeDrugs',
                 url: '/prescribeDrugs',
                 templateUrl: 'components/prescribe_drugs/prescribe_drugs.html'
             };
             var patientOverviewState = {
-                name: 'patientOverview',
+                name: 'opd.patientOverview',
                 url: '/patientOverview',
                 templateUrl: 'components/patients_overview/patients_overview.html'
             };
             var questionnaireState = {
-                name: 'questionnaire',
+                name: 'opd.questionnaire',
                 url: '/questionnaire',
                 templateUrl: 'components/questionnaire/questionnaire.html'
             };
             var newExaminationsState = {
-                name: 'newExaminations',
+                name: 'opd.newExaminations',
                 url: '/newExaminations',
                 templateUrl: 'components/new_examinations/new_examinations.html'
             };
 
+            $stateProvider.state(loginState);
+            $stateProvider.state(templateState);
             $stateProvider.state(dashboardState);
             $stateProvider.state(patientState);
             $stateProvider.state(newPatientState);
@@ -52,7 +59,7 @@ angular.module('opdClient')
             
             $urlRouterProvider.otherwise(function ($injector, $location) { 
                 var $state = $injector.get('$state'); 
-                $state.go(dashboardState);
+                $state.go(loginState);
             });
 
             $mdThemingProvider.theme('dark-grey')
