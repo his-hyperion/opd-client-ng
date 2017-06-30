@@ -1,11 +1,11 @@
 <md-toolbar layout="row" class="md-whiteframe-glow-z1 site-content-toolbar">
     <div class="md-toolbar-tools">
-        <h1>New Patient</h1>
+        <h1>Update Patient</h1>
     </div>
 </md-toolbar>
 <md-content layout-padding>
     <div>
-        <form ng-controller="newPatientsController" name="patientForm" ng-cloak>
+        <form ng-controller="updatePatientsController" name="patientForm" ng-cloak>
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
@@ -13,13 +13,24 @@
                     </md-card-title-text>
                 </md-card-title>
                 <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+                    <md-input-container flex="30">
+                        <label>Patients List</label>
+                        <md-select name="patientsList" ng-model="patientsList" ng-click="getPatients()">
+                            <md-option ng-repeat="patient in patients" value="{{patient.firstName}} {{patient.lastName}}" ng-click="selectPatient(patient.firstName)">
+                                {{patient.firstName}} {{patient.lastName}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
 
                     <md-input-container flex="5">
                     </md-input-container>
 
                     <md-input-container flex="10">
                         <label>Title</label>
-                        <md-select name="title" ng-model="newPatient.title" required>
+                        <md-select name="title" ng-model="Updatepatients.title" required>
                             <md-option value="Rev.">Rev.</md-option>
                             <md-option value="Mr.">Mr.</md-option>
                             <md-option value="Mrs.">Mrs.</md-option>
@@ -35,7 +46,7 @@
                     </md-input-container>
                     <md-input-container class="md-block" flex="35">
                         <label>First Name</label>
-                        <input name="firstName" ng-model="newPatient.firstName" required ng-pattern="/^[a-zA-Z\s]*$/">
+                        <input name="firstName" ng-model="Updatepatients.firstName" required ng-pattern="/^[a-zA-Z\s]*$/">
                         <div ng-messages="patientForm.firstName.$error" role="alert">
                             <div ng-message="pattern">Invalid. Enter only letters</div>
                             <div ng-message="required">Required</div>
@@ -47,7 +58,7 @@
                     </md-input-container>
                     <md-input-container class="md-block" flex="35">
                         <label>Last Name</label>
-                        <input name="lastName" ng-model="newPatient.lastName" required ng-pattern="/^[a-zA-Z\s]*$/">
+                        <input name="lastName" ng-model="Updatepatients.lastName" required ng-pattern="/^[a-zA-Z\s]*$/">
                         <div ng-messages="patientForm.lastName.$error" role="alert">
                             <div ng-message="pattern">Invalid. Enter only letters</div>
                             <div ng-message="required">Required</div>
@@ -57,7 +68,7 @@
                 <div layout-gt-sm="row">
                     <md-input-container>
                         <label>Date of Birth</label>
-                        <md-datepicker md-max-date="maxDate" name="dob" ng-model="newPatient.dob" required md-current-view="year">/md-datepicker>
+                        <md-datepicker md-max-date="maxDate" name="dob" ng-model="Updatepatients.dob" required md-current-view="year">/md-datepicker>
                             <div ng-messages="patientForm.dob.$error" role="alert">
                                 <div ng-message="required">Required</div>
                                 <div ng-message="valid">Invalid date</div>
@@ -69,7 +80,7 @@
 
                     <md-input-container flex="15">
                         <label>Gender</label>
-                        <md-select name="gender" ng-model="newPatient.gender" required>
+                        <md-select name="gender" ng-model="Updatepatients.gender" required>
                             <md-option value="Male">Male</md-option>
                             <md-option value="Female">Female</md-option>
                         </md-select>
@@ -83,7 +94,7 @@
 
                     <md-input-container flex="15">
                         <label>Civil Status</label>
-                        <md-select name="civilStatus" ng-model="newPatient.civilStatus" required>
+                        <md-select name="civilStatus" ng-model="Updatepatients.civilStatus" required>
                             <md-option value="Married">Married</md-option>
                             <md-option value="Unmarried">Unmarried</md-option>
                         </md-select>
@@ -104,7 +115,7 @@
 
                     <md-input-container class="md-block" flex="25">
                         <label>NIC</label>
-                        <input name="nic" ng-model="newPatient.nic" required ng-pattern="/^[0-9]{9}[vVxX]$/">
+                        <input name="nic" ng-model="Updatepatients.nic" required ng-pattern="/^[0-9]{9}[vVxX]$/">
                         <div ng-messages="patientForm.nic.$error" role="alert">
                             <div ng-message="pattern">Invalid NIC number</div>
                             <div ng-message="required">Required</div>
@@ -116,7 +127,7 @@
 
                     <md-input-container class="md-block" flex="25">
                         <label>Passport</label>
-                        <input name="passport" ng-model="newPatient.passport" ng-pattern="/^[0-9]{12}$/">
+                        <input name="passport" ng-model="Updatepatients.passport" ng-pattern="/^[0-9]{12}$/">
                         <div ng-messages="patientForm.passport.$error" role="alert">
                             <div ng-message="pattern">Invalid Passport number</div>
                         </div>
@@ -127,7 +138,7 @@
 
                     <md-input-container class="md-block" flex="25">
                         <label>Citizenship</label>
-                        <input name="citizenship" ng-model="newPatient.citizenship" ng-pattern="/^[a-zA-Z\s]*$/">
+                        <input name="citizenship" ng-model="Updatepatients.citizenship" ng-pattern="/^[a-zA-Z\s]*$/">
                         <div ng-messages="patientForm.citizenship.$error" role="alert">
                             <div ng-message="pattern">Invalid Citizenship</div>
                         </div>
@@ -138,7 +149,7 @@
                     </md-input-container>
                     <md-input-container flex="25">
                         <label>Preffered Language</label>
-                        <md-select name="language" ng-model="newPatient.language" required>
+                        <md-select name="language" ng-model="Updatepatients.language" required>
                             <md-option value="Sinhala">Sinhala</md-option>
                             <md-option value="Tamil">Tamil</md-option>
                             <md-option value="English">English</md-option>
@@ -153,7 +164,7 @@
                     </md-input-container>
                     <md-input-container flex="25">
                         <label>Blood Group</label>
-                        <md-select name="bloodGroup" ng-model="newPatient.bloodGroup" required>
+                        <md-select name="bloodGroup" ng-model="Updatepatients.bloodGroup" required>
                             <md-option value="A+">A+</md-option>
                             <md-option value="A-">A-</md-option>
                             <md-option value="B+">B+</md-option>
@@ -181,7 +192,7 @@
 
                     <md-input-container class="md-block" flex="65">
                         <label>Address</label>
-                        <input name="address" ng-model="newPatient.address" required>
+                        <input name="address" ng-model="Updatepatients.address" required>
                         <div ng-messages="patientForm.address.$error" role="alert">
                             <div ng-message="required">Required</div>
                         </div>
@@ -193,7 +204,7 @@
 
                     <md-input-container class="md-block" flex="30">
                         <label>Phone</label>
-                        <input name="phone" ng-model="newPatient.phone" required ng-pattern="/^[0-9]{10}$/">
+                        <input name="phone" ng-model="Updatepatients.phone" required ng-pattern="/^[0-9]{10}$/">
                         <div ng-messages="patientForm.phone.$error" role="alert">
                             <div ng-message="required">Required</div>
                             <div ng-message="pattern">Invalid Phone number</div>
@@ -203,40 +214,18 @@
                     </md-input-container>
                     <md-input-container class="md-block" flex="30">
                         <label>Mobile</label>
-                        <input name="mobile" ng-model="newPatient.mobile" required ng-pattern="/^[0-9]{10}$/">
+                        <input name="mobile" ng-model="Updatepatients.mobile" required ng-pattern="/^[0-9]{10}$/">
                         <div ng-messages="patientForm.mobile.$error" role="alert">
                             <div ng-message="required">Required</div>
                             <div ng-message="pattern">Invalid Phone number</div>
                         </div>
                     </md-input-container>
                 </div>
-            </md-card>
-            <md-card>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Patients Other Details</span>
-                    </md-card-title-text>
-                </md-card-title>
-                <div layout-gt-sm="row">
-                    <md-input-container flex="5">
-                    </md-input-container>
-                    <md-input-container class="md-block" flex="65">
-                        <label>Remark</label>
-                        <input name="remark" ng-model="newPatient.remark">
-                    </md-input-container>
-                </div>
-                <div layout-gt-sm="row">
-                    <md-input-container flex="5">
-                    </md-input-container>
-                    <md-input-container class="md-block" flex="40">
-                        <lf-ng-md-file-input lf-files="files" preview ></lf-ng-md-file-input>
-                    </md-input-container>
-                </div>
                 <div layout-gt-sm="row">
                     <md-input-container flex="5">
                     </md-input-container>
                     <md-button class="md-raised md-warn" ng-click="Reset()">Clear</md-button>
-                    <md-button class="md-raised md-primary" ng-click="AddNewPatients()" ng-disabled="patientForm.$invalid">Submit</md-button>
+                    <md-button class="md-raised md-primary" ng-click="updatePatients()" ng-disabled="patientForm.$invalid">Submit</md-button>
                 </div>
             </md-card>
         </form>

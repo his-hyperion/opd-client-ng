@@ -1,11 +1,11 @@
 angular
     .module('patientOverview')
-    .controller('patientsOverviewController', ['$scope', '$http', function ($scope, $http) {
+    .controller('patientsOverviewController', ['$scope', 'patients_overviewService', function ($scope, patients_overviewService) {
 
         $scope.patients = []
 
         $scope.getPatients = function () {
-            $http.get('http://localhost:8080/api/patients')
+            patients_overviewService.getPatients()
                 .then(function (response) {
                     $scope.patients = response.data;
                     // console.log($scope.patients[0].firstName);
