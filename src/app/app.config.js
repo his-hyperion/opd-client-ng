@@ -52,22 +52,22 @@ angular.module('opdClient')
                 templateUrl: 'components/update_patient/update_patient.html'
             };
             var visitsState = {
-                name: 'visits',
+                name: 'opd.visits',
                 url: '/visits',
                 templateUrl: 'components/visits/visits.html'
             };
             var patientOverviewForNurseState = {
-                name: 'patientOverviewForNurse',
+                name: 'opd.patientOverviewForNurse',
                 url: '/patientOverviewForNurse',
                 templateUrl: 'components/patients_overview_forNurse/patients_overview_forNurse.html'
             };
             var allergyState = {
-                name: 'allergies',
+                name: 'opd.allergies',
                 url: '/allergies',
                 templateUrl: 'components/allergies/allergies.html'
             };
             var noteState = {
-                name: 'notes',
+                name: 'opd.notes',
                 url: '/notes',
                 templateUrl: 'components/notes/notes.html'
             };
