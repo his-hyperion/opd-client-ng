@@ -3,7 +3,6 @@ angular.module('opdClient', ['ngMaterial', 'ngMessages', 'md.data.table', 'lfNgM
     'newExaminations', 'updatePatients', 'visits', 'patientOverviewForNurse', 'alergies', 'notes', 'attachments'])
     .run(function ($rootScope, $state, $stateParams, $transitions, authenticationService) {
         $transitions.onStart({  }, function (trans) {
-            console.log('klklklkl')
             if (!authenticationService.isAuthenticated()) {
                 $state.transitionTo('login');
             }
