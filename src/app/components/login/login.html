@@ -1,3 +1,36 @@
-<h2>Login</h2>
+<md-toolbar layout="row">
+    <div class="md-toolbar-tools">
+        <h1>Digital Pulz - Out Patient Department</h1>
+    </div>
+</md-toolbar>
 
-<button ui-sref="opd.dashboard">Log In</button>
+
+<md-content class="md-padding" layout-xs="column" layout="row" layout-align="center" ng-controller="loginController">
+    <div flex-xs flex-gt-xs="40" layout="column">
+        <md-card>
+            <img src="assets/img/ms_login.jpg" class="md-card-image" alt="Washed Out">
+            <md-card-title style="background-color: #190729; color: white">
+                <md-card-title-text>
+                    <span class="md-headline">Log In</span>
+                </md-card-title-text>
+            </md-card-title>
+            <form>
+                <md-card-content>
+                    <div>
+                        <md-input-container class="md-block">
+                            <label>User name</label>
+                            <input ng-model="user.username">
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Password</label>
+                            <input ng-model="user.password" type="password">
+                        </md-input-container>
+                    </div>
+                </md-card-content>
+                <md-card-actions layout="row" layout-align="start center">
+                    <md-button type="submit" class="md-raised md-primary" ng-click="authenticate(user)">Authenticate</md-button>
+                </md-card-actions>
+            </form>
+        </md-card>
+    </div>
+</md-content>
