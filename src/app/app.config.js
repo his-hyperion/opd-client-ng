@@ -72,8 +72,8 @@ angular.module('opdClient')
                 templateUrl: 'components/notes/notes.html'
             };
             var attachmentsState = {
-                name: 'attachments',
-                url: 'attachments',
+                name: 'opd.attachments',
+                url: '/attachments',
                 templateUrl: 'components/attachments/attachments.html'
             };
 
