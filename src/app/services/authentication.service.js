@@ -1,22 +1,20 @@
 angular.module('opdClient')
     .factory('authenticationService', function($http) {
         var baseURL = 'http://localhost:8080/authenticate';
-        var loggedInUser;
-        var authenticated = false;
 
         return {
             authenticate: function (user) {
                 return $http.post(baseURL, user);
             },
             setLoggedInUser: function (user) {
-                loggedInUser = user;
-                authenticated = true;
+                sessionStorage.setItem('user', JSON.stringify(user));
+                sessionStorage.setItem('authenticated', true);
             },
             getLoggedInUser: function () {
-                return loggedInUser;
+                return JSON.parse(sessionStorage.getItem('user'));
             },
             isAuthenticated: function () {
-                return authenticated;
+                return JSON.parse(sessionStorage.getItem('authenticated'));
             }
         };
     });
