@@ -51,6 +51,31 @@ angular.module('opdClient')
                 url: '/updatePatient',
                 templateUrl: 'components/update_patient/update_patient.html'
             };
+            var visitsState = {
+                name: 'opd.visits',
+                url: '/visits',
+                templateUrl: 'components/visits/visits.html'
+            };
+            var patientOverviewForNurseState = {
+                name: 'opd.patientOverviewForNurse',
+                url: '/patientOverviewForNurse',
+                templateUrl: 'components/patients_overview_forNurse/patients_overview_forNurse.html'
+            };
+            var allergyState = {
+                name: 'opd.allergies',
+                url: '/allergies',
+                templateUrl: 'components/allergies/allergies.html'
+            };
+            var noteState = {
+                name: 'opd.notes',
+                url: '/notes',
+                templateUrl: 'components/notes/notes.html'
+            };
+            var attachmentsState = {
+                name: 'opd.attachments',
+                url: '/attachments',
+                templateUrl: 'components/attachments/attachments.html'
+            };
 
             $stateProvider.state(loginState);
             $stateProvider.state(templateState);
@@ -62,6 +87,11 @@ angular.module('opdClient')
             $stateProvider.state(questionnaireState);
             $stateProvider.state(newExaminationsState);
             $stateProvider.state(updatePatientState);
+            $stateProvider.state(visitsState);
+            $stateProvider.state(patientOverviewForNurseState);
+            $stateProvider.state(allergyState);
+            $stateProvider.state(noteState);
+            $stateProvider.state(attachmentsState);
             
             $urlRouterProvider.otherwise(function ($injector, $location) { 
                 var $state = $injector.get('$state'); 

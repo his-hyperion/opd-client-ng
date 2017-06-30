@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
     <link rel="stylesheet" href="node_modules/lf-ng-md-file-input/dist/lf-ng-md-file-input.css">
 
 </head>
+
 <body ng-app="opdClient" layout="column">
 
     <!--<md-toolbar layout="row">
@@ -41,15 +43,13 @@
 
     <script src="./components/new_patients/new_patients.module.js"></script>
     <script src="./components/new_patients/new_patients.controller.js"></script>
-    <script src="./services/new_patients.service.js"></script>
+    <script src="./services/patients.service.js"></script>
 
     <script src="./components/patients_overview/patients_overview.module.js"></script>
     <script src="./components/patients_overview/patients_overview.controller.js"></script>
-    <script src="./services/patient_overview.service.js"></script>
 
     <script src="./components/update_patient/update_patient.module.js"></script>
     <script src="./components/update_patient/update_patient.controller.js"></script>
-    <script src="./services/update_patient.service.js"></script>
 
     <script src="./components/questionnaire/questionnaire.module.js"></script>
     <script src="./components/questionnaire/questionnaire.controller.js"></script>
@@ -57,12 +57,31 @@
     <script src="./components/prescribe_drugs/prescribe_drugs.module.js"></script>
     <script src="./components/prescribe_drugs/prescribe_drugs.controller.js"></script>
 
-     <script src="./components/new_examinations/new_examinations.module.js"></script>
-     <script src="./components/new_examinations/new_examinations.controller.js"></script>
+    <script src="./components/new_examinations/new_examinations.module.js"></script>
+    <script src="./components/new_examinations/new_examinations.controller.js"></script>
+
+    <script src="./components/visits/visits.module.js"></script>
+    <script src="./components/visits/visits.controller.js"></script>
 
     <script src="node_modules/chart.js/dist/Chart.min.js"></script>
     <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
 
     <script src="./components/dashboard/dashboard.module.js"></script>
+
+    <script src="./components/patients_overview_forNurse/patients_overview_forNurse.module.js"></script>
+    <script src="./components/patients_overview_forNurse/patients_overview_forNurse.controller.js"></script>
+
+    <script src="./components/allergies/allergies.module.js"></script>
+    <script src="./components/allergies/allergies.controller.js"></script>
+
+    <script src="./components/notes/notes.module.js"></script>
+    <script src="./components/notes/notes.controller.js"></script>
+
+    <script src="./components/attachments/attachments.module.js"></script>
+    <script src="./components/attachments/attachments.controller.js"></script>
+
+    <script src="./services/selected_patient.service.js"></script>
+
 </body>
+
 </html>

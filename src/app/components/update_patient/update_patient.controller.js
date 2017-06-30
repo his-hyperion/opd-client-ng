@@ -1,12 +1,12 @@
 angular
     .module('updatePatients')
-    .controller('updatePatientsController', ['$scope', '$mdDialog', 'update_patientsService','patients_overviewService', function ($scope, $mdDialog, update_patientsService, patients_overviewService) {
+    .controller('updatePatientsController', ['$scope', '$mdDialog', 'patientsService', function ($scope, $mdDialog, patientsService) {
 
         $scope.patients = {};
         $scope.Updatepatients = {};
 
         $scope.getPatients = function () {
-            patients_overviewService.getPatients()
+            patientsService.getPatients()
                 .then(function (response) {
                     $scope.patients = response.data;
                     // console.log($scope.patients[0].firstName);
@@ -23,7 +23,7 @@ angular
         };
 
         $scope.updatePatients = function () {
-            update_patientsService.updatePatient($scope.Updatepatients._id,$scope.Updatepatients)
+            patientsService.updatePatient($scope.Updatepatients._id,$scope.Updatepatients)
                 .then(function (response) {
                     // clear form
                     $mdDialog.show(

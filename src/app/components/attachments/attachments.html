@@ -1,0 +1,100 @@
+<md-toolbar layout="row" class="md-whiteframe-glow-z1 site-content-toolbar">
+    <div class="md-toolbar-tools">
+        <h1>Add Attachments</h1>
+    </div>
+</md-toolbar>
+<md-content layout-padding>
+    <div>
+        <form ng-controller="attachmentsController" name="attachmentsForm" ng-cloak>
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Attachments Details</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex="35">
+                        <input id="fileInput" name="file" type="file" class="ng-hide" multiple>
+                        <md-button id="uploadButton" class="md-raised md-primary" ng-click="click()"> Choose Files </md-button>
+                    </md-input-container>
+
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container flex="35">
+                        <label>Attachment Type</label>
+                        <md-select name="type" ng-model="attachments.type" required>
+                            <md-option value="PDF">PDF</md-option>
+                            <md-option value="PNG">PNG</md-option>
+                            <md-option value="Doc">Doc</md-option>
+                            <md-option value="Text">Text</md-option>
+                        </md-select>
+                        <div ng-messages="attachmentsForm.typeError.$error" role="alert">
+                            <div ng-message="required">Required</div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex="35">
+                        <label>Attachment Name</label>
+                        <input name="attName" ng-model="attachments.attName" required>
+                    </md-input-container>
+                    <div ng-messages="attachmentsForm.attNameError.$error" role="alert">
+                        <div ng-message="required">Required</div>
+                    </div>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex="65">
+                        <label>Description</label>
+                        <input name="description" ng-model="attachments.description" required>
+                    </md-input-container>
+                    <div ng-messages="attachmentsForm.descriptionError.$error" role="alert">
+                        <div ng-message="required">Required</div>
+                    </div>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex="65">
+                        <label>Remark</label>
+                        <input name="remark" ng-model="attachments.remark">
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex="35">
+                        <label>Attched By</label>
+                        <input name="attBy" ng-model="attachments.attBy" readonly>
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+                    <md-button class="md-raised md-warn" ng-click="Reset()">Clear</md-button>
+                    <md-button class="md-raised md-primary" ng-click="AddAttachments()" ng-disabled="attachmentsForm.$invalid">Submit</md-button>
+                </div>
+
+            </md-card>
+        </form>
+    </div>
+</md-content>

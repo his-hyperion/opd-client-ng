@@ -1,0 +1,45 @@
+<md-toolbar layout="row" class="md-whiteframe-glow-z1 site-content-toolbar">
+    <div class="md-toolbar-tools">
+        <h1>Add Notes</h1>
+    </div>
+</md-toolbar>
+<md-content layout-padding>
+    <div>
+        <form ng-controller="notesController" name="notesForm" ng-cloak>
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Note</span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex="65">
+                        <label>Special Notes</label>
+                        <input name="note" ng-model="notes.note">
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex="35">
+                        <label>Date</label>
+                        <input name="dateTime" ng-model="notes.dateTime" readonly>
+                    </md-input-container>
+                </div>
+          
+              <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+                    <md-button class="md-raised md-warn" ng-click="Reset()">Clear</md-button>
+                    <md-button class="md-raised md-primary" ng-click="AddVisit()" ng-disabled="notesForm.$invalid">Submit</md-button>
+                </div>
+
+            </md-card>
+        </form>
+    </div>
+</md-content>

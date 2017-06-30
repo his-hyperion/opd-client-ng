@@ -1,0 +1,1 @@
+angular.module('notes', ['ngMaterial', 'ngMessages','lfNgMdFileInput']);
