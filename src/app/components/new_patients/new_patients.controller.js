@@ -1,6 +1,6 @@
 angular
     .module('newPatients')
-    .controller('newPatientsController', ['$scope', '$mdDialog', 'patientsService', function ($scope, $mdDialog, patientsService) {
+    .controller('newPatientsController', ['$scope', '$mdDialog', 'patientsService', 'uniqueIdService', function ($scope, $mdDialog, patientsService, uniqueIdService) {
 
         //datepicker validation not to select future dates
         $scope.myDate = new Date();
@@ -13,6 +13,8 @@ angular
         $scope.newPatient = {};
 
         $scope.AddNewPatients = function () {
+
+            $scope.newPatient.hin = uniqueIdService.new();
 
             var formData = new FormData();
             angular.forEach($scope.files, function (obj) {
