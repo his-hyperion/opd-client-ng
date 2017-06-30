@@ -17,10 +17,13 @@
                     </md-input-container>
                     <md-input-container flex="30">
                         <label>Patients List</label>
-                        <md-select name="patientsList" ng-model="patientsList" ng-click="getPatients()">
+                        <md-select name="patientsList" ng-model="patientsList" ng-click="getPatients()" required>
                             <md-option ng-repeat="patient in patients" value="{{patient.firstName}} {{patient.lastName}}" ng-click="selectPatient(patient.firstName)">
                                 {{patient.firstName}} {{patient.lastName}}</md-option>
                         </md-select>
+                        <div ng-messages="patientOverviewForm.bloodGroup.$error" role="alert">
+                            <div ng-message="required">Required</div>
+                        </div>
                     </md-input-container>
                 </div>
                 <div layout-gt-sm="row">
@@ -118,7 +121,7 @@
                                 <input name="searchAllergy" ng-model="searchAllergy">
                             </md-input-container>
                             <md-input-container class="md-block" flex="35">
-                                <md-button class="md-raised md-primary" ng-click="null" ui-sref="opd.allergies">Add New Allergies</md-button>
+                                <md-button class="md-raised md-primary" ng-click="setPaient()" ui-sref="allergies" ng-disabled="patientOverviewForm.$invalid">Add New Allergies</md-button>
                             </md-input-container>
                             <table md-table multiple>
                                 <thead md-head>
@@ -146,7 +149,7 @@
                                 <input name="searchNote" ng-model="searchNote">
                             </md-input-container>
                             <md-input-container class="md-block" flex="35">
-                                <md-button class="md-raised md-primary" ng-click="null" ui-sref="opd.notes">Add Notes</md-button>
+                                <md-button class="md-raised md-primary" ng-click="setPaient()" ui-sref="notes" ng-disabled="patientOverviewForm.$invalid">Add Notes</md-button>
                             </md-input-container>
                             <table md-table multiple>
                                 <thead md-head>
@@ -172,7 +175,7 @@
                                 <input name="searchAttc" ng-model="searchAttc">
                             </md-input-container>
                             <md-input-container class="md-block" flex="35">
-                                <md-button class="md-raised md-primary" ng-click="null" ui-sref="opd.attachments">Add Attachments</md-button>
+                                <md-button class="md-raised md-primary" ng-click="setPaient()" ui-sref="attachments" ng-disabled="patientOverviewForm.$invalid">Add Attachments</md-button>
                             </md-input-container>
                             <table md-table multiple>
                                 <thead md-head>

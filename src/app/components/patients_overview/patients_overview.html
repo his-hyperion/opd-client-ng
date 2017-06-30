@@ -17,10 +17,13 @@
                     </md-input-container>
                     <md-input-container flex="30">
                         <label>Patients List</label>
-                        <md-select name="patientsList" ng-model="patientsList" ng-click="getPatients()">
+                        <md-select name="patientsList" ng-model="patientsList" ng-click="getPatients()" required>
                             <md-option ng-repeat="patient in patients" value="{{patient.firstName}} {{patient.lastName}}" ng-click="selectPatient(patient.firstName)">
                                 {{patient.firstName}} {{patient.lastName}}</md-option>
                         </md-select>
+                        <div ng-messages="patientOverviewForm.bloodGroup.$error" role="alert">
+                            <div ng-message="required">Required</div>
+                        </div>
                     </md-input-container>
                 </div>
                 <div layout-gt-sm="row">
@@ -143,7 +146,7 @@
                                 <input name="searchVisits" ng-model="searchVisits">
                             </md-input-container>
                             <md-input-container class="md-block" flex="35">
-                                <md-button class="md-raised md-primary" ng-click="null" ui-sref="opd.visits">Add New Visits</md-button>
+                                <md-button class="md-raised md-primary" ng-click="setPaient()" ui-sref="visits" ng-disabled="patientOverviewForm.$invalid">Add New Visits</md-button>
                             </md-input-container>
                             <table md-table multiple>
                                 <thead md-head>
@@ -175,7 +178,7 @@
                                 <input name="searchExam" ng-model="searchExam">
                             </md-input-container>
                             <md-input-container class="md-block" flex="35">
-                                <md-button class="md-raised md-primary">Add New Examinations</md-button>
+                                <md-button class="md-raised md-primary" ng-click="setPaient()" ng-disabled="patientOverviewForm.$invalid">Add New Examinations</md-button>
                             </md-input-container>
                             <table md-table multiple>
                                 <thead md-head>
@@ -209,7 +212,7 @@
                                 <input name="searchLab" ng-model="searchLab">
                             </md-input-container>
                             <md-input-container class="md-block" flex="35">
-                                <md-button class="md-raised md-primary">Add New Labs</md-button>
+                                <md-button class="md-raised md-primary" ng-click="setPaient()" ng-disabled="patientOverviewForm.$invalid">Add New Labs</md-button>
                             </md-input-container>
                             <table md-table multiple>
                                 <thead md-head>
@@ -236,7 +239,7 @@
                             <input name="searchNote" ng-model="searchNote">
                         </md-input-container>
                         <md-input-container class="md-block" flex="35">
-                            <md-button class="md-raised md-primary" ng-click="null" ui-sref="opd.notes">Add Notes</md-button>
+                            <md-button class="md-raised md-primary" ng-click="setPaient()" ui-sref="notes" ng-disabled="patientOverviewForm.$invalid">Add Notes</md-button>
                         </md-input-container>
                         <table md-table multiple>
                             <thead md-head>

@@ -71,6 +71,11 @@ angular.module('opdClient')
                 url: '/notes',
                 templateUrl: 'components/notes/notes.html'
             };
+            var attachmentsState = {
+                name: 'attachments',
+                url: 'attachments',
+                templateUrl: 'components/attachments/attachments.html'
+            };
 
             $stateProvider.state(loginState);
             $stateProvider.state(templateState);
@@ -86,6 +91,7 @@ angular.module('opdClient')
             $stateProvider.state(patientOverviewForNurseState);
             $stateProvider.state(allergyState);
             $stateProvider.state(noteState);
+            $stateProvider.state(attachmentsState);
             
             $urlRouterProvider.otherwise(function ($injector, $location) { 
                 var $state = $injector.get('$state'); 

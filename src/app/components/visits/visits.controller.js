@@ -1,8 +1,9 @@
 angular
     .module('visits')
-    .controller('visitsController', ['$scope', '$mdDialog', '$filter', function ($scope, $mdDialog, $filter) {
+    .controller('visitsController', ['$scope', '$mdDialog', '$filter','selectedPatientService', function ($scope, $mdDialog, $filter, selectedPatientService) {
 
         $scope.visit = {};
+        $scope.patientID = selectedPatientService.getId();
 
         $scope.visit.dateTime = $filter('date')(new Date(), 'MMM d, y h:mm:ss a');
         $scope.visit.doctor = "Dr. A.B.C.Perera";

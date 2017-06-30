@@ -1,11 +1,11 @@
 angular
     .module('patientOverview')
-    .controller('patientsOverviewController', ['$scope', 'patients_overviewService', function ($scope, patients_overviewService) {
+    .controller('patientsOverviewController', ['$scope', 'patientsService', 'selectedPatientService', function ($scope, patientsService, selectedPatientService) {
 
         $scope.patients = []
 
         $scope.getPatients = function () {
-            patients_overviewService.getPatients()
+            patientsService.getPatients()
                 .then(function (response) {
                     $scope.patients = response.data;
                     // console.log($scope.patients[0].firstName);
@@ -118,5 +118,10 @@ angular
                 remark: "bb",
                 attchedBy: "R.A.Perera"  
             }]
+        };
+
+        $scope.setPaient=function(){
+            //console.log($scope.id);
+            selectedPatientService.setId($scope.id);
         };
     }]);
