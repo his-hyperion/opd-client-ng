@@ -16,11 +16,9 @@
                     <md-input-container flex="5">
                     </md-input-container>
 
-                    <md-input-container class="md-block" flex="35">
-                        <input id="fileInput" name="file" type="file" class="ng-hide" multiple>
-                        <md-button id="uploadButton" class="md-raised md-primary" ng-click="click()"> Choose Files </md-button>
+                    <md-input-container class="md-block" flex="40">
+                        <lf-ng-md-file-input lf-files="files" ></lf-ng-md-file-input>
                     </md-input-container>
-
                 </div>
 
                 <div layout-gt-sm="row">
@@ -32,6 +30,7 @@
                         <md-select name="type" ng-model="attachments.type" required>
                             <md-option value="PDF">PDF</md-option>
                             <md-option value="PNG">PNG</md-option>
+                            <md-option value="JPEG">JPEG</md-option>
                             <md-option value="Doc">Doc</md-option>
                             <md-option value="Text">Text</md-option>
                         </md-select>

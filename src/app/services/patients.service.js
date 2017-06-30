@@ -15,4 +15,4 @@ angular
                 return $http.put(baseURL + patient_id, patient);
             }
         };
-    }])
+    }]) 

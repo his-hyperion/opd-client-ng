@@ -1,6 +1,6 @@
 angular
     .module('patientOverviewForNurse')
-    .controller('patientsOverviewForNurseController', ['$scope', 'patientsService', 'selectedPatientService', function ($scope, patientsService, selectedPatientService) {
+    .controller('patientsOverviewForNurseController', ['$scope', 'patientsService', 'selectedPatientService', 'allergyService', 'notesService', 'attachmentsService', function ($scope, patientsService, selectedPatientService, allergyService, notesService, attachmentsService) {
 
         $scope.patients = []
 
@@ -31,46 +31,27 @@ angular
         };
 
         $scope.getAllergies = function () {
-            $scope.allergies = [{
-                allergy: "aaa",
-                status: "aaa",
-                remark:"aaa"
-            },
-            {
-                allergy: "b",
-                status: "b",
-                remark:"b"
-            }]
+            $scope.allergies = [];
+            allergyService.getallergiesByPatient($scope.id)
+                .then(function(response){
+                    $scope.allergies = response.data;
+                })
         };
 
         $scope.getNotes= function () {
-            $scope.notes = [{
-                note: "Test note",
-                date: "2017/06/29"  
-            },
-            {
-                note: "Test note 2",
-                date: "2017/06/28"  
-            }]
+            $scope.notes = [];
+            notesService.getNotesByPatient($scope.id)
+                .then(function(response){
+                    $scope.notes = response.data;
+                })
         };
 
         $scope.getAttchments= function () {
-            $scope.attachments = [{
-                file: "Test file",
-                type: "PDF",
-                name: "Test Name",
-                description: "Test",
-                remark: "aa",
-                attchedBy: "D.Silva"          
-            },
-            {
-                file: "Test file2",
-                type: "PNG",
-                name: "Test Name",
-                description: "Test",
-                remark: "bb",
-                attchedBy: "R.A.Perera"  
-            }]
+            $scope.attachments = [];
+            attachmentsService.getAttachmentByPatient($scope.id)
+                .then(function(response){
+                    $scope.attachments = response.data;
+                })
         };
         
         $scope.setPaient=function(){

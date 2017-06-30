@@ -1,6 +1,6 @@
 angular
     .module('patientOverview')
-    .controller('patientsOverviewController', ['$scope', 'patientsService', 'selectedPatientService', function ($scope, patientsService, selectedPatientService) {
+    .controller('patientsOverviewController', ['$scope', 'patientsService', 'selectedPatientService', 'visitsService', 'allergyService', 'notesService', 'attachmentsService',  function ($scope, patientsService, selectedPatientService, visitsService, allergyService, notesService, attachmentsService) {
 
         $scope.patients = []
 
@@ -31,20 +31,12 @@ angular
         };
 
         $scope.getVisits = function () {
-            $scope.visits = [{
-                visitType: "OPD",
-                visitNo: "001",
-                dateTime: "2017-05-08",
-                complaint: "aa",
-                remark: ""
-            },
-            {
-                visitType: "OPD",
-                visitNo: "002",
-                dateTime: "2017-05-07",
-                complaint: "sdff",
-                remark: "ds"
-            }];
+            $scope.visits = [];
+            visitsService.getVisitsByPatient($scope.id)
+                .then(function(response){
+                    $scope.visits = response.data;
+                })
+
         };
 
         $scope.getExaminations = function () {
@@ -78,46 +70,27 @@ angular
             }]
         };
         $scope.getAllergies = function () {
-            $scope.allergies = [{
-                allergy: "a",
-                status: "a",
-                remark:"a"
-            },
-            {
-                allergy: "b",
-                status: "b",
-                remark:"b"
-            }]
+            $scope.allergies = [];
+            allergyService.getallergiesByPatient($scope.id)
+                .then(function(response){
+                    $scope.allergies = response.data;
+                })
         };
 
         $scope.getNotes= function () {
-            $scope.notes = [{
-                note: "Test note",
-                date: "2017/06/29"  
-            },
-            {
-                note: "Test note 2",
-                date: "2017/06/28"  
-            }]
+            $scope.notes = [];
+            notesService.getNotesByPatient($scope.id)
+                .then(function(response){
+                    $scope.notes = response.data;
+                })
         };
 
         $scope.getAttchments= function () {
-            $scope.attachments = [{
-                file: "Test file",
-                type: "PDF",
-                name: "Test Name",
-                description: "Test",
-                remark: "aa",
-                attchedBy: "D.Silva"          
-            },
-            {
-                file: "Test file2",
-                type: "PNG",
-                name: "Test Name",
-                description: "Test",
-                remark: "bb",
-                attchedBy: "R.A.Perera"  
-            }]
+            $scope.attachments = [];
+            attachmentsService.getAttachmentByPatient($scope.id)
+                .then(function(response){
+                    $scope.attachments = response.data;
+                })
         };
 
         $scope.setPaient=function(){

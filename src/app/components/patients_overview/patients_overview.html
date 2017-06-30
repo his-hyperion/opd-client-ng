@@ -152,19 +152,19 @@
                                 <thead md-head>
                                     <tr md-row>
                                         <th md-column>Visit Type</th>
-                                        <th md-column>Visit Number</th>
                                         <th md-column>Date and Time</th>
                                         <th md-column>Complaint</th>
                                         <th md-column>Remark</th>
+                                        <th md-column>Doctor</th>
                                     </tr>
                                 </thead>
                                 <tbody md-body>
                                     <tr md-row ng-repeat="visit in visits | filter:searchVisits">
                                         <td md-cell>{{visit.visitType}}</td>
-                                        <td md-cell>{{visit.visitNo}}</td>
                                         <td md-cell>{{visit.dateTime}}</td>
                                         <td md-cell>{{visit.complaint}}</td>
                                         <td md-cell>{{visit.remark}}</td>
+                                        <td md-cell>{{visit.doctor}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -234,27 +234,29 @@
                     </md-tab>
 
                     <md-tab label="Notes" ng-click="getNotes()">
-                        <md-input-container class="md-block" flex="35">
-                            <label>Search</label>
-                            <input name="searchNote" ng-model="searchNote">
-                        </md-input-container>
-                        <md-input-container class="md-block" flex="35">
-                            <md-button class="md-raised md-primary" ng-click="setPaient()" ui-sref="opd.notes" ng-disabled="patientOverviewForm.$invalid">Add Notes</md-button>
-                        </md-input-container>
-                        <table md-table multiple>
-                            <thead md-head>
-                                <tr md-row>
-                                    <th md-column>Date</th>
-                                    <th md-column>Note</th>
-                                </tr>
-                            </thead>
-                            <tbody md-body>
-                                <tr md-row ng-repeat="note in notes | filter:searchNote">
-                                    <td md-cell>{{note.date}}</td>
-                                    <td md-cell>{{note.note}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <md-content class="md-padding">
+                            <md-input-container class="md-block" flex="35">
+                                <label>Search</label>
+                                <input name="searchNote" ng-model="searchNote">
+                            </md-input-container>
+                            <md-input-container class="md-block" flex="35">
+                                <md-button class="md-raised md-primary" ng-click="setPaient()" ui-sref="opd.notes" ng-disabled="patientOverviewForm.$invalid">Add Notes</md-button>
+                            </md-input-container>
+                            <table md-table multiple>
+                                <thead md-head>
+                                    <tr md-row>
+                                        <th md-column>Date</th>
+                                        <th md-column>Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody md-body>
+                                    <tr md-row ng-repeat="note in notes | filter:searchNote">
+                                        <td md-cell>{{note.dateTime}}</td>
+                                        <td md-cell>{{note.note}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </md-content>
                     </md-tab>
 
                     <md-tab label="Attachments" ng-click="getAttchments()">
@@ -278,10 +280,10 @@
                                     <tr md-row ng-repeat="attachment in attachments | filter:searchAttc">
                                         <td md-cell>{{attachment.file}}</td>
                                         <td md-cell>{{attachment.type}}</td>
-                                        <td md-cell>{{attachment.name}}</td>
+                                        <td md-cell>{{attachment.attName}}</td>
                                         <td md-cell>{{attachment.description}}</td>
                                         <td md-cell>{{attachment.remark}}</td>
-                                        <td md-cell>{{attachment.attchedBy}}</td>
+                                        <td md-cell>{{attachment.attBy}}</td>
                                     </tr>
                                 </tbody>
                             </table>

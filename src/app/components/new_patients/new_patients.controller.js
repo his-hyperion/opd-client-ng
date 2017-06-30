@@ -20,7 +20,6 @@ angular
                 formData.append('files[]', obj.lfFile);
 
             });
-            //console.log($scope.newPatient);
 
             patientsService.addNewPatient($scope.newPatient)
                 .then(function (response) {

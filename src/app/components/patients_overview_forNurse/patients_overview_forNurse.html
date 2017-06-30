@@ -160,7 +160,7 @@
                                 </thead>
                                 <tbody md-body>
                                     <tr md-row ng-repeat="note in notes | filter:searchNote">
-                                        <td md-cell>{{note.date}}</td>
+                                        <td md-cell>{{note.dateTime}}</td>
                                         <td md-cell>{{note.note}}</td>
                                     </tr>
                                 </tbody>
@@ -192,10 +192,10 @@
                                     <tr md-row ng-repeat="attachment in attachments | filter:searchAttc">
                                         <td md-cell>{{attachment.file}}</td>
                                         <td md-cell>{{attachment.type}}</td>
-                                        <td md-cell>{{attachment.name}}</td>
+                                        <td md-cell>{{attachment.attName}}</td>
                                         <td md-cell>{{attachment.description}}</td>
                                         <td md-cell>{{attachment.remark}}</td>
-                                        <td md-cell>{{attachment.attchedBy}}</td>
+                                        <td md-cell>{{attachment.attBy}}</td>
                                     </tr>
                                 </tbody>
                             </table>
