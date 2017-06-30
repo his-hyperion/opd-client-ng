@@ -16,7 +16,7 @@ angular
                 if ($scope.patients[i].firstName == name) {
                     $scope.id = $scope.patients[i]._id;
                     $scope.name = $scope.patients[i].firstName + " " + $scope.patients[i].lastName;
-                    $scope.HIN = "12542252";
+                    $scope.HIN = $scope.patients[i].hin;
                     $scope.gender = $scope.patients[i].gender;
                     $scope.civilStatus = $scope.patients[i].civilStatus;
                     $scope.dob = $scope.patients[i].dob;                   

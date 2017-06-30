@@ -4,7 +4,7 @@ angular
 
         $scope.attachments = {};
         $scope.attachments.patientID = selectedPatientService.getId();
-        $scope.attachments.attBy = authenticationService.getLoggedInUser().username;
+        $scope.attachments.attBy = "Nurse." + authenticationService.getLoggedInUser().username;
 
         // add attachments
         $scope.AddAttachments = function () {
@@ -33,7 +33,7 @@ angular
             $scope.attachments = {};
             $scope.attachmentsForm.$setPristine();
             $scope.attachmentsForm.$setUntouched();
-            $scope.attachments.attBy = authenticationService.getLoggedInUser().username;
+            $scope.attachments.attBy = "Nurse." + authenticationService.getLoggedInUser().username;
 
         }
 
