@@ -4,7 +4,7 @@ angular.module('opdClient')
 
         return {
             getQueues: function () {
-                
+                return $http.get(baseURL);
             },
             queuePatient: function (entry) {
                 return $http.post(baseURL, entry);
