@@ -76,6 +76,12 @@ angular.module('opdClient')
                 url: '/attachments',
                 templateUrl: 'components/attachments/attachments.html'
             };
+            var labTestRequestState = {
+                name: 'opd.labTestRequest',
+                url: '/labTestRequest',
+                templateUrl: 'components/lab_test_request/lab_test_request.html'
+            };
+            
             var queuesState = {
                 name: 'opd.queues',
                 url: '/queues',
@@ -102,6 +108,7 @@ angular.module('opdClient')
             $stateProvider.state(allergyState);
             $stateProvider.state(noteState);
             $stateProvider.state(attachmentsState);
+            $stateProvider.state(labTestRequestState);
             $stateProvider.state(queuesState);
             $stateProvider.state(myQueueState);
             

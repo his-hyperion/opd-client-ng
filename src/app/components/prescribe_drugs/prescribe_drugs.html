@@ -12,22 +12,25 @@
                         <span class="md-headline"><b>Patients Information</b></span>
                     </md-card-title-text>
                 </md-card-title>
-                <md-input-container flex="30">
+                <md-input-container flex="30" style="margin-left: 50px">
                     <label>Patients List</label>
                     <md-select name="patientsList" ng-model="patientsList" ng-click="getPatients()">
                         <md-option ng-repeat="patient in patients" value="{{patient.firstName}} {{patient.lastName}}" ng-click="selectPatient(patient.firstName)">
-                            {{patient.firstName}} {{patient.lastName}}</md-option>
+                            {{patient.firstName}} {{patient.lastName}}
+                        </md-option>
                     </md-select>
                 </md-input-container>
+
+
                 <div layout-gt-sm="row">
                     <md-input-container flex="5">
                     </md-input-container>
 
                     <md-input-container flex="6">
                         <div class="row">
-                            <h4>{{name}} / {{gender}} / {{civilStatus}} / {{bloodGroup}}</h4>
-                            <h4> Person Address : {{address}} </h4>
-                            <h4> DOB : {{dob}} </h4>
+                            <h4>{{details}}</h4>
+                            <h4> {{addressDetails}} </h4>
+                            <h4> {{DOBdetails}} </h4>
                         </div>
                     </md-input-container>
                 </div>
@@ -41,36 +44,35 @@
                     </md-card-title-text>
                 </md-card-title>
 
-                <div>
-                    <label style="margin:60px;"><b>Drugs</b></label>
+                <!--<div>-->
+                <!--<label style="margin:60px;"><b>Drugs</b></label>
                     <label style="margin:4px;"><b>Dosages</b></label>
                     <label style="margin:20px;"><b>Frequency</b></label>
-                    <label style="margin:20px; margin-right:120px;"><b>Period</b></label>
-                    <md-button class="md-raised md-warn" ng-click="addQuestion()">Refer BNF</md-button>
-
-
-                </div>
+                    <label style="margin:20px; margin-right:120px;"><b>Period</b></label>-->
+                <!--<md-button class="md-raised md-warn" ng-click="addQuestion()">Refer BNF</md-button>-->
+                <!--</div>-->
 
                 <div layout-gt-sm="row">
                     <md-input-container flex="5">
                     </md-input-container>
 
-                    <md-input-container flex="6">
+                    <md-input-container flex="16">
 
                         <div class="row">
 
-                            <select name="multipleSelect" id="multipleSelect" ng-model="data.multipleSelect" multiple>
+
+                            <!--<select name="multipleSelect" id="multipleSelect" ng-model="data.multipleSelect" multiple>
                                 <option value="option-1">{{Methildropa}}</option>
                                 <option value="option-2">{{Captropin}}</option>
                                 <option value="option-3">{{Asprin}}</option>
                                 <option value="option-4">{{Deliphilin}}</option>                                
                                 <option value="option-5">{{Clarithomycin}}</option>
                                 
-                            </select>
+                            </select>-->
 
 
 
-                            <select name="multipleDosages" id="multipleDosages" ng-model="data.multipleDosages" multiple>
+                            <!--<select name="multipleDosages" id="multipleDosages" ng-model="data.multipleDosages" multiple>
                                 <option value="option-1">{{dosage1}}</option>
                                 <option value="option-2">{{dosage2}}</option>
                                 <option value="option-3">{{dosage3}}</option>
@@ -89,29 +91,165 @@
                                 <option value="option-2">{{period2}}</option>
                                 <option value="option-3">{{period3}}</option>
                                 <option value="option-4">{{period4}}</option>   
-                            </select>
+                            </select>-->
                         </div>
+                        <!--table start-->
 
-                        <table md-table multiple>
 
-                            <tbody md-body>
-                                <tr md-row>
-                                    <td md-cell>
-                                        <h3><tt>multipleSelect = {{data.multipleSelect}}</tt><br/></h3>
-                                    </td>
-                                    <td md-cell>
+                        <!--<div style="font-size: 12px;padding:5px;margin:0; line-height:18px; border: 1px solid #c4c4c4;background: white;">
+                            <!--<ng-md-icon icon="info" size="16" style="float:left;fill:#479BFF;margin-right: 5px;"></ng-md-icon>-->
+                        <!--<span><i>Selectable Rows</i> feature makes each row selectable. Click on the checkbox on any row to see it in action. After selection there is also a possibility to remove the selected rows.</span>
+                        </div>-->
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <!--<mdt-table table-card="{visible: true, title: 'Nutritions'}" selectable-rows="true" alternate-headers="'contextual'" delete-row-callback="deleteRowCallback(rows)">
+                            <mdt-header-row>
+                                <mdt-column align-rule="left">Dessert (100g serving)</mdt-column>
+                                <mdt-column align-rule="right">Calories</mdt-column>
+                                <mdt-column align-rule="right">Fat (g)</mdt-column>
+                                <mdt-column align-rule="right">Carbs (g)</mdt-column>
+                                <mdt-column align-rule="right">Protein (g)</mdt-column>
+                                <mdt-column align-rule="right">Sodium (mg)</mdt-column>
+                                <mdt-column align-rule="right">Calcium (%)</mdt-column>
+                                <mdt-column align-rule="right">Iron (%)</mdt-column>
+                            </mdt-header-row>
+                            <mdt-row ng-repeat="nutrition in nutritionList" table-row-id="nutrition.id">
+                                <mdt-cell>{{nutrition.name}}</mdt-cell>
+                                <mdt-cell>{{nutrition.calories}}</mdt-cell>
+                                <mdt-cell>{{nutrition.fat}}</mdt-cell>
+                                <mdt-cell>{{nutrition.carbs}}</mdt-cell>
+                                <mdt-cell>{{nutrition.protein}}</mdt-cell>
+                                <mdt-cell>{{nutrition.sodium}}</mdt-cell>
+                                <mdt-cell>{{nutrition.calcium}}</mdt-cell>
+                                <mdt-cell>{{nutrition.iron}}</mdt-cell>
+                            </mdt-row>
+                        </mdt-table>-->
+
+                        <!--table finish-->
+
 
                     </md-input-container>
+
+                    <md-input-container flex="15" style="margin-right: 20px">
+                        <label>Select Drug</label>
+                        <md-select name="drugsList" ng-model="drugsDetails.drugsList" ng-click="getDrugs()">
+                            <md-option ng-repeat="drug in drugs" value="{{drug.drugName}}" ng-click="selectDrug(drug.drugName)">
+                                {{drug.drugName}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container flex="15" style="margin-right: 20px">
+                        <label>Select Dosages</label>
+                        <md-select name="dosageList" ng-model="drugsDetails.dosageList" ng-click="getDosageList()">
+                            <md-option ng-repeat="dosage in dosages" value="{{dosage.dosageValue}}" ng-click="selectDosage(dosage.dosageValue)">
+                                {{dosage.dosageValue}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container flex="25" style="margin-right: 20px">
+                        <label>Select Frequency</label>
+                        <md-select name="frequencyList" ng-model="drugsDetails.frequencyList" ng-click="getfrequency()">
+                            <md-option ng-repeat="drugFrequency in frequency" value="{{drugFrequency.frequencyValue}}" ng-click="selectFrequency(drugFrequency.frequencyValue)">
+                                {{drugFrequency.frequencyValue}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container flex="15" style="margin-right: 5px">
+                        <label>Select Period</label>
+                        <md-select name="periodList" ng-model="drugsDetails.periodList" ng-click="getPeriod()">
+                            <md-option ng-repeat="drugPeriod in period" value="{{drugPeriod.periodValue}}" ng-click="selectPeriod(drugPeriod.periodValue)">
+                                {{drugPeriod.periodValue}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+
+
+
+                    <md-input-container flex="4">
+                    </md-input-container>
+
+                    <md-input-container flex="10">
+                        <md-button class="md-raised md-primary" ng-disabled="!(drugsDetails.drugsList && drugsDetails.dosageList && drugsDetails.frequencyList && drugsDetails.periodList)" ng-click="addDrugs()">Add</md-button>
+                    </md-input-container>
+
+                    <md-input-container flex="15">
+                        <md-button class="md-raised md-warn" ng-disabled="!(drugsDetails.drugsList)" ng-click="viewBNF()">Refer BNF</md-button>
+                    </md-input-container>
+
+
+
+
+
+
+
+                    <!--<md-input-container>
+
+                        <md-autocomplete md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText"
+                            md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)"
+                            md-item-text="item.display" md-min-length="0" placeholder="What is your favorite US state?">
+                            <md-item-template>
+                                <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                            </md-item-template>
+                            <md-not-found>
+                                No states matching "{{ctrl.searchText}}" were found.
+                                <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
+                            </md-not-found>
+                        </md-autocomplete>
+                    </md-input-container>-->
                 </div>
 
+                <md-content class="md-padding" flex="95">
+                    <!--<md-input-container class="md-block" flex="35">
+                            <label>Search</label>
+                            <input name="searchAttc" ng-model="searchAttc">
+                        </md-input-container>-->
+                    <table md-table multiple > 
+                        <thead md-head >
+                            <tr md-row>
+                                <th md-column><h2>Drug</h2></th>
+                                <th md-column><h2>Dosage</h2></th>
+                                <th md-column><h2>Frequency</h2></th>
+                                <th md-column><h2>Period</h2></th>
+                                <th md-column><h2></h2></th>
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row ng-repeat="checkAddedValue in checkAddedValues">
+                                <td md-cell>{{checkAddedValue.drugsList}}</td>
+                                <td md-cell>{{checkAddedValue.dosageList}}</td>
+                                <td md-cell>{{checkAddedValue.frequencyList}}</td>
+                                <td md-cell>{{checkAddedValue.periodList}}</td>                                
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+
+
+
+                    
+                </md-content>
+
+
+
+
+
             </md-card>
+            
+
+                
+            
 
 
         </form>
+
+        <!--ddddddddddddd1-->
+
+
+
+        <!--ssssssssssssssssssssssssss-->
     </div>
 </md-content>
