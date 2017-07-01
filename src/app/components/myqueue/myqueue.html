@@ -1,0 +1,69 @@
+<md-toolbar layout="row" class="md-whiteframe-glow-z1 site-content-toolbar" ng-controller="myQueueController">
+    <div class="md-toolbar-tools">
+        <h1>My Queue</h1>
+    </div>
+    <md-button class="md-raised md-warn" ng-click="logOut()">Log Out</md-button>
+</md-toolbar>
+
+<div class="doc-content" ng-controller="myQueueController">
+    <section class="md-whiteframe-1dp">
+        <md-toolbar md-primary class="doc-toolbar">
+            <div class="md-toolbar-tools">
+                <h3></h3>
+            </div>
+        </md-toolbar>
+        <div ng-cloak layout-gt-sm="row" layout="column">
+
+            <div flex-gt-sm="100" flex>
+
+                <md-toolbar layout="row" class="md-hue-3">
+                    <div class="md-toolbar-tools">
+                        <span>Patient</span>
+                    </div>
+                </md-toolbar>
+                <md-content>
+                    <md-list flex>
+                        <!--<md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader>-->
+                        <md-list-item class="md-3-line" ng-repeat="patient in patients" ng-click="selectpatient(patient)">
+                            <!--<img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />-->
+                            <div class="md-list-item-text" layout="column">
+                                <h3>{{ patient.firstName }}</h3>
+                                <h4>{{ patient.lastName }}</h4>
+                                <p>{{ patient.bloodGroup }}</p>
+                                <md-button class="md-secondary md-warn" ng-click="removePatient(patient)">Remove</md-button>
+                                <md-button class="md-secondary" ng-click="">Redirect</md-button>
+                            </div>
+                            <md-divider></md-divider>
+                        </md-list-item>
+                    </md-list>
+                </md-content>
+            </div>
+            <md-divider></md-divider>
+            <!--<div flex-gt-sm="50" flex>
+                <md-toolbar layout="row" class="md-hue-3">
+                    <div class="md-toolbar-tools">
+                        <span>Patient Details</span>
+                    </div>
+                </md-toolbar>
+
+                <md-content>-->
+
+                    <!--<md-list flex>-->
+                        <!--<md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader>-->
+                        <!--<md-list-item class="md-3-line"  ng-click="selectpatient(patient)">-->
+                            <!--<img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />-->
+                            <!--<div class="md-list-item-text" layout="column">
+                                <h2>First Name:</h2>
+                                <h3>{{ selectedPatient.firstName }}</h3>
+                                <h3>{{ selectedPatient.lastName }}</h3>
+                                <h3>{{ selectedPatient.bloodGroup }}</h3>
+                            </div>
+                            <md-divider></md-divider>-->
+                        <!--</md-list-item>-->
+                    <!--</md-list>-->
+                <!--</md-content>-->
+            <!--</div>-->
+
+        </div>
+    </section>
+</div>
