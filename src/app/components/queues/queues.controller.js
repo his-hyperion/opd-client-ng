@@ -1,5 +1,6 @@
 angular.module('opdClient')
-    .controller('queuesController', function ($scope, $state, doctorsService, patientsService, $mdToast, queuesService) {
+    .controller('queuesController', function ($scope, $state, doctorsService, 
+    patientsService, $mdToast, queuesService, $rootScope) {
         var last = {
             bottom: false,
             top: true,
@@ -152,4 +153,7 @@ angular.module('opdClient')
                 }
             }
         };
+        $scope.logOut = function () {
+            $rootScope.$broadcast("logout");
+        }
     });
