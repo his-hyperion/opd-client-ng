@@ -1,4 +1,4 @@
-<md-toolbar layout="row" class="md-whiteframe-glow-z1 site-content-toolbar">
+<md-toolbar layout="row" >
     <div class="md-toolbar-tools">
         <h1>Patient exminations</h1>
     </div>
@@ -19,9 +19,7 @@
 
                     <md-input-container flex="6">
                         <div class="row">
-                            <!--<h4>{{patientName}} / {{patientGender}} / {{patientAge}} / {{patientMaritualState}}</h4>
-                            <h4> Person ID : {{personID}} </h4>
-                            <h4> DOB : {{DOB}} </h4>-->
+                            
                             <table md-table multiple>
 
                                 <tbody md-body>
@@ -40,27 +38,8 @@
                                         </td>
                                         <td md-cell>
                                             <h3>
-                                                <md-input-container class="md-block">
-                                                   
-                                                    <input required type="number" step="any" name="rate" ng-model="examination.height" min="0" max="300" value="0" />
-
-                                                    <!--<div ng-messages="projectForm.rate.$error" multiple md-auto-hide="false">
-                                                        <div ng-message="required">
-                                                            <h6>Required.<h6>
-                                                        </div>
-
-                                                        <div ng-message="min">
-                                                            minimum height required
-                                                        </div>
-
-                                                        <div ng-message="pattern">
-                                                            You should charge exactly $1,234.
-                                                        </div>
-
-                                                        <div ng-message="max">
-                                                            maximum height required
-                                                        </div>
-                                                    </div>-->
+                                                <md-input-container >
+                                                    <input  name="height" ng-model="examination.height" />
                                                 </md-input-container>
                                             </h3>
 
@@ -74,25 +53,9 @@
                                             <h3>
                                                 <md-input-container class="md-block">
                                                    
-                                                    <input required type="number" step="any" name="rate" ng-model="examination.weight" min="10" max="500" value="0" />  
+                                                    <input required  step="any" name="rate" ng-model="examination.weight" min="10" max="500" value="0" />  
 
-                                                    <!--<div ng-messages="projectForm.rate.$error" multiple md-auto-hide="false">
-                                                        <div ng-message="required">
-                                                            <h6>Required.<h6>
-                                                        </div>
-
-                                                        <div ng-message="min">
-                                                            minimum height required
-                                                        </div>
-
-                                                        <div ng-message="pattern">
-                                                            You should charge exactly $1,234.
-                                                        </div>
-
-                                                        <div ng-message="max">
-                                                            maximum height required
-                                                        </div>
-                                                    </div>-->
+                                                    
                                                 </md-input-container>
                                             </h3>
                                         </td>
@@ -117,23 +80,7 @@
                                                    
                                                     <input required type="number" step="any" name="rate" ng-model="examination.temp" min="10" max="500" value="0" />  
 
-                                                    <!--<div ng-messages="projectForm.rate.$error" multiple md-auto-hide="false">
-                                                        <div ng-message="required">
-                                                            <h6>Required.<h6>
-                                                        </div>
-
-                                                        <div ng-message="min">
-                                                            minimum height required
-                                                        </div>
-
-                                                        <div ng-message="pattern">
-                                                            You should charge exactly $1,234.
-                                                        </div>
-
-                                                        <div ng-message="max">
-                                                            maximum height required
-                                                        </div>
-                                                    </div>-->
+                                                    
                                                 </md-input-container>
                                             </h3>
                                         </td>
@@ -148,23 +95,7 @@
                                                    
                                                     <input required type="number" step="any" name="rate" ng-model="examination.SysBloodPresure" min="10" max="500" value="0" />  
 
-                                                    <!--<div ng-messages="projectForm.rate.$error" multiple md-auto-hide="false">
-                                                        <div ng-message="required">
-                                                            <h6>Required.<h6>
-                                                        </div>
-
-                                                        <div ng-message="min">
-                                                            minimum height required
-                                                        </div>
-
-                                                        <div ng-message="pattern">
-                                                            You should charge exactly $1,234.
-                                                        </div>
-
-                                                        <div ng-message="max">
-                                                            maximum height required
-                                                        </div>
-                                                    </div>-->
+                                                   
                                                 </md-input-container>
                                             </h3>
                                         </td>
@@ -179,23 +110,7 @@
                                                    
                                                     <input required type="number" step="any" name="rate" ng-model="examination.DiasBloodPresure" min="10" max="500" value="0" />  
 
-                                                    <!--<div ng-messages="projectForm.rate.$error" multiple md-auto-hide="false">
-                                                        <div ng-message="required">
-                                                            <h6>Required.<h6>
-                                                        </div>
-
-                                                        <div ng-message="min">
-                                                            minimum height required
-                                                        </div>
-
-                                                        <div ng-message="pattern">
-                                                            You should charge exactly $1,234.
-                                                        </div>
-
-                                                        <div ng-message="max">
-                                                            maximum height required
-                                                        </div>
-                                                    </div>-->
+                                                    
                                                 </md-input-container>
                                             </h3>
                                         </td>
@@ -203,7 +118,7 @@
 
                                 </tbody>
                             </table>
-                            <md-button class="md-raised md-primary">Save</md-button>
+                            <md-button class="md-raised md-primary" ng-click="addExaminations()">Save</md-button>
                             <md-button class="md-raised" ng-click="resetFunction()">Cancel</md-button>
                             
 

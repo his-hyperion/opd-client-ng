@@ -1,0 +1,121 @@
+<md-toolbar layout="row" >
+    <div class="md-toolbar-tools">
+        <h1 style="color: crimson"><b>Laboritory</b></h1>
+        <h3 style="color: cornflowerblue"><b> - Lab Requests</b></h3>
+    </div>
+</md-toolbar>
+<md-content layout-padding>
+    <div>
+        <form name="examForm" ng-controller="newExaminationsController">
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline" style="color:cornflowerblue"><b>Add Lab Requests</b></span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                <div layout-gt-sm="row">
+                    <md-input-container flex="5">
+                    </md-input-container>
+
+                    <md-input-container flex="6">
+                        <div class="row">
+
+                            <table md-table multiple>
+
+                                <tbody md-body>
+
+
+                                    <tr md-row>
+                                        <td md-cell>
+                                            <h3>Test Name</h3>
+                                        </td>
+                                        <td md-cell>
+                                            <md-input-container flex="60" style="margin-left: 50px">
+                                                <label>Test Name</label>
+                                                <md-select name="testName" ng-model="testName" ng-click="getTestName()">
+                                                    <md-option value="Blood Test">Blood Test</md-option>
+                                                    <md-option value="Sugar Test">Sugar Test</md-option>
+                                                </md-select>
+                                            </md-input-container>
+
+                                        </td>
+                                    </tr>
+                                    <tr md-row>
+                                        <td md-cell>
+                                            <h3>Patient HIN</h3>
+                                        </td>
+                                        <td md-cell>
+                                            <h3>
+                                                <md-input-container>
+                                                    <input name="HIN" ng-model="labtestRequest.HIN"  />
+                                                </md-input-container>
+                                            </h3>
+                                        </td>
+                                    </tr>
+                                    <tr md-row>
+                                        <td md-cell>
+                                            <h3>Priority</h3>
+                                        </td>
+                                        <td md-cell>
+                                            <md-input-container flex="60" style="margin-left: 50px">
+                                                <label>Priority</label>
+                                                <md-select name="Priority" ng-model="Priority" ng-click="getPriority()">
+                                                    <md-option value="Low">Low</md-option>
+                                                    <md-option value="Medium">Medium</md-option>
+                                                    <md-option value="High">High</md-option>
+                                                </md-select>
+                                            </md-input-container>
+
+                                        </td>
+                                    </tr>
+                                    <tr md-row>
+                                        <td md-cell>
+                                            <h3>Due Date</h3>
+                                        </td>
+                                        <td md-cell>
+                                            <h3>
+                                                <md-input-container >
+
+                                                    <input  name="dueDate" ng-model="labtestRequest.dueDate"  />
+
+
+                                                </md-input-container>
+                                            </h3>
+                                        </td>
+                                    </tr>
+                                    <tr md-row>
+                                        <td md-cell>
+                                            <h3>Comment</h3>
+                                        </td>
+                                        <td md-cell>
+                                            <h3>
+                                                <md-input-container class="md-block">
+
+                                                    <input required type="text"  name="Comment" ng-model="labtestRequest.comment" />
+
+
+                                                </md-input-container>
+                                            </h3>
+                                        </td>
+                                    </tr>
+                                    
+
+                                </tbody>
+                            </table>
+                            <md-button class="md-raised md-primary" ng-click="addlabtestRequest()">Save</md-button>
+                            <md-button class="md-raised" ng-click="resetFunction()">Cancel</md-button>
+
+
+                        </div>
+                    </md-input-container>
+                </div>
+
+            </md-card>
+
+
+
+
+        </form>
+    </div>
+</md-content>

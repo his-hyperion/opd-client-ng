@@ -1,14 +1,14 @@
 angular
-    .module('newExaminations')
-    .controller('newExaminationsController', ['$scope', '$mdDialog', 'newExaminationsService', function ($scope, $mdDialog, newExaminationsService) {
+    .module('labTestRequest')
+    .controller('labTestRequestController', ['$scope', '$mdDialog', 'newExaminationsService', function ($scope, $mdDialog, newExaminationsService) {
 
-        $scope.examination = {};
+        $scope.labtestRequest = {};
 
-        $scope.addExaminations = function () {
+        $scope.addlabtestRequest = function () {
 
-            
 
-            newExaminationsService.addNewExaminations($scope.examination)
+
+            labTestRequestService.addLabtest($scope.labtestRequest)
                 .then(function (response) {
                     // clear form
                     $mdDialog.show(
@@ -16,7 +16,7 @@ angular
                             .parent(angular.element(document.querySelector('#popupContainer')))
                             .clickOutsideToClose(true)
                             .title('Success')
-                            .textContent('New patient examination details successfuly added to the database.')
+                            .textContent('Lab test details successfuly added to the database.')
                             .ariaLabel('Alert Dialog Demo')
                             .ok('Got it!')
                     );
@@ -36,12 +36,10 @@ angular
 
         $scope.CurrentDate = new Date();
         $scope.resetFunction = function () {
-            $scope.examination.height = "";
-            $scope.examination.weight = "";
-            $scope.examination.BMI = "";
-            $scope.examination.temp = "";
-            $scope.examination.SysBloodPresure = "";
-            $scope.examination.DiasBloodPresure = "";
+            $scope.labtestRequest.HIN = "";
+            $scope.labtestRequest.dueDate = "";
+            $scope.labtestRequest.comment = "";
+           
 
 
             // $scope.examForm.$setPristine();

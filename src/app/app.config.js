@@ -76,6 +76,12 @@ angular.module('opdClient')
                 url: '/attachments',
                 templateUrl: 'components/attachments/attachments.html'
             };
+            var labTestRequestState = {
+                name: 'opd.labTestRequest',
+                url: '/labTestRequest',
+                templateUrl: 'components/lab_test_request/lab_test_request.html'
+            };
+            
 
             $stateProvider.state(loginState);
             $stateProvider.state(templateState);
@@ -92,6 +98,7 @@ angular.module('opdClient')
             $stateProvider.state(allergyState);
             $stateProvider.state(noteState);
             $stateProvider.state(attachmentsState);
+            $stateProvider.state(labTestRequestState);
             
             $urlRouterProvider.otherwise(function ($injector, $location) { 
                 var $state = $injector.get('$state'); 
