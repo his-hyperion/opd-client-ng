@@ -1,6 +1,6 @@
 angular
     .module('patientOverview')
-    .controller('patientsOverviewController', ['$scope', 'patientsService', 'selectedPatientService', 'visitsService', 'allergyService', 'notesService', 'attachmentsService',  function ($scope, patientsService, selectedPatientService, visitsService, allergyService, notesService, attachmentsService) {
+    .controller('patientsOverviewController', ['$scope', 'patientsService', 'selectedPatientService', 'visitsService', 'allergyService', 'notesService', 'attachmentsService', '$rootScope',  function ($scope, patientsService, selectedPatientService, visitsService, allergyService, notesService, attachmentsService, $rootScope) {
 
         $scope.patients = []
 
@@ -97,4 +97,8 @@ angular
             //console.log($scope.id);
             selectedPatientService.setId($scope.id);
         };
+
+        $scope.logOut = function () {
+            $rootScope.$broadcast("logout");
+        }
     }]);

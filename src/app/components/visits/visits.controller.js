@@ -1,6 +1,6 @@
 angular
     .module('visits')
-    .controller('visitsController', ['$scope', '$mdDialog', '$filter', 'selectedPatientService', 'visitsService', 'authenticationService', function ($scope, $mdDialog, $filter, selectedPatientService, visitsService, authenticationService) {
+    .controller('visitsController', ['$scope', '$mdDialog', '$filter', 'selectedPatientService', 'visitsService', 'authenticationService', '$rootScope', function ($scope, $mdDialog, $filter, selectedPatientService, visitsService, authenticationService, $rootScope) {
 
         $scope.visit = {};
         $scope.visit.patientID = selectedPatientService.getId();
@@ -34,5 +34,8 @@ angular
             $scope.visit.doctor = "Dr." + authenticationService.getLoggedInUser().username;
 
         };
+        $scope.logOut = function () {
+            $rootScope.$broadcast("logout");
+        }
 
     }]);
