@@ -1,12 +1,12 @@
 angular
     .module('visits')
-    .controller('visitsController', ['$scope', '$mdDialog', '$filter', 'selectedPatientService', 'visitsService', function ($scope, $mdDialog, $filter, selectedPatientService, visitsService) {
+    .controller('visitsController', ['$scope', '$mdDialog', '$filter', 'selectedPatientService', 'visitsService', 'authenticationService', '$rootScope', function ($scope, $mdDialog, $filter, selectedPatientService, visitsService, authenticationService, $rootScope) {
 
         $scope.visit = {};
         $scope.visit.patientID = selectedPatientService.getId();
 
         $scope.visit.dateTime = $filter('date')(new Date(), 'MMM d, y h:mm:ss a');
-        $scope.visit.doctor = "Dr. A.B.C.Perera";
+        $scope.visit.doctor = "Dr." + authenticationService.getLoggedInUser().username;
 
         //add visits
         $scope.AddVisit = function () {
@@ -31,8 +31,11 @@ angular
             $scope.visitsForm.$setPristine();
             $scope.visitsForm.$setUntouched();
             $scope.visit.dateTime = $filter('date')(new Date(), 'MMM d, y h:mm:ss a');
-            $scope.visit.doctor = "Dr. A.B.C.Perera";
+            $scope.visit.doctor = "Dr." + authenticationService.getLoggedInUser().username;
 
         };
+        $scope.logOut = function () {
+            $rootScope.$broadcast("logout");
+        }
 
     }]);

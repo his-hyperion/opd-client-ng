@@ -1,10 +1,10 @@
 angular
     .module('attachments')
-    .controller('attachmentsController', ['$scope', '$mdDialog', 'selectedPatientService', 'attachmentsService', function ($scope, $mdDialog, selectedPatientService, attachmentsService) {
+    .controller('attachmentsController', ['$scope', '$mdDialog', 'selectedPatientService', 'attachmentsService', 'authenticationService', '$rootScope', function ($scope, $mdDialog, selectedPatientService, attachmentsService, authenticationService,  $rootScope) {
 
         $scope.attachments = {};
         $scope.attachments.patientID = selectedPatientService.getId();
-        $scope.attachments.attBy = "A.T.Silva";
+        $scope.attachments.attBy = "Nurse." + authenticationService.getLoggedInUser().username;
 
         // add attachments
         $scope.AddAttachments = function () {
@@ -33,8 +33,12 @@ angular
             $scope.attachments = {};
             $scope.attachmentsForm.$setPristine();
             $scope.attachmentsForm.$setUntouched();
-            $scope.attachments.attBy = "A.T.Silva";
+            $scope.attachments.attBy = "Nurse." + authenticationService.getLoggedInUser().username;
 
+        }
+
+        $scope.logOut = function () {
+            $rootScope.$broadcast("logout");
         }
 
 

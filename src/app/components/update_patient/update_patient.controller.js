@@ -1,6 +1,6 @@
 angular
     .module('updatePatients')
-    .controller('updatePatientsController', ['$scope', '$mdDialog', 'patientsService', function ($scope, $mdDialog, patientsService) {
+    .controller('updatePatientsController', ['$scope', '$mdDialog', 'patientsService', '$rootScope', function ($scope, $mdDialog, patientsService, $rootScope) {
 
         $scope.patients = {};
         $scope.Updatepatients = {};
@@ -47,5 +47,9 @@ angular
             $scope.Updatepatients = {};
             $scope.patientForm.$setPristine();
             $scope.patientForm.$setUntouched();
+        }
+
+        $scope.logOut = function () {
+            $rootScope.$broadcast("logout");
         }
     }]);

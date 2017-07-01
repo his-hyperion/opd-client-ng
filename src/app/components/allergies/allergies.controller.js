@@ -1,6 +1,6 @@
 angular
     .module('alergies')
-    .controller('allergiesController', ['$scope', '$mdDialog', 'selectedPatientService', 'allergyService', function ($scope, $mdDialog, selectedPatientService, allergyService) {
+    .controller('allergiesController', ['$scope', '$mdDialog', 'selectedPatientService', 'allergyService', '$rootScope', function ($scope, $mdDialog, selectedPatientService, allergyService , $rootScope) {
 
         $scope.allergy = {};
         $scope.allergy.patientID = selectedPatientService.getId();
@@ -28,6 +28,9 @@ angular
             $scope.allergiesForm.$setPristine();
             $scope.allergiesForm.$setUntouched();
 
+        }
+        $scope.logOut = function () {
+            $rootScope.$broadcast("logout");
         }
 
     }]);

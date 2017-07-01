@@ -1,6 +1,6 @@
 angular
     .module('patientOverview')
-    .controller('patientsOverviewController', ['$scope', 'patientsService', 'selectedPatientService', 'visitsService', 'allergyService', 'notesService', 'attachmentsService',  function ($scope, patientsService, selectedPatientService, visitsService, allergyService, notesService, attachmentsService) {
+    .controller('patientsOverviewController', ['$scope', 'patientsService', 'selectedPatientService', 'visitsService', 'allergyService', 'notesService', 'attachmentsService', '$rootScope',  function ($scope, patientsService, selectedPatientService, visitsService, allergyService, notesService, attachmentsService, $rootScope) {
 
         $scope.patients = []
 
@@ -16,7 +16,7 @@ angular
                 if ($scope.patients[i].firstName == name) {
                     $scope.id = $scope.patients[i]._id;
                     $scope.name = $scope.patients[i].firstName + " " + $scope.patients[i].lastName;
-                    $scope.HIN = "12542252";
+                    $scope.HIN = $scope.patients[i].hin;
                     $scope.gender = $scope.patients[i].gender;
                     $scope.civilStatus = $scope.patients[i].civilStatus;
                     $scope.dob = $scope.patients[i].dob;                   
@@ -97,4 +97,8 @@ angular
             //console.log($scope.id);
             selectedPatientService.setId($scope.id);
         };
+
+        $scope.logOut = function () {
+            $rootScope.$broadcast("logout");
+        }
     }]);

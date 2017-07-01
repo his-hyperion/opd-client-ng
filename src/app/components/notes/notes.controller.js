@@ -1,6 +1,6 @@
 angular
     .module('notes')
-    .controller('notesController', ['$scope', '$mdDialog', '$filter', 'selectedPatientService', 'notesService', function ($scope, $mdDialog, $filter, selectedPatientService, notesService) {
+    .controller('notesController', ['$scope', '$mdDialog', '$filter', 'selectedPatientService', 'notesService', '$rootScope', function ($scope, $mdDialog, $filter, selectedPatientService, notesService, $rootScope) {
 
         $scope.notes = {};
         $scope.notes.patientID = selectedPatientService.getId();
@@ -30,6 +30,10 @@ angular
             $scope.notesForm.$setUntouched();
             $scope.notes.dateTime = $filter('date')(new Date(), 'MMM d, y');
 
+        }
+
+        $scope.logOut = function () {
+            $rootScope.$broadcast("logout");
         }
 
     }]);
