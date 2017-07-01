@@ -1,5 +1,5 @@
 angular.module('dashboard', ['chart.js'])
-    .controller('dashboardController', function ($scope) {
+    .controller('dashboardController', function ($scope, $rootScope) {
         $scope.labels = ["Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"];
         $scope.series = ['New', 'Recurring'];
         $scope.data = [
@@ -40,4 +40,8 @@ angular.module('dashboard', ['chart.js'])
                 }
             }
         };
+
+        $scope.logOut = function () {
+            $rootScope.$broadcast("logout");
+        }
     });

@@ -15,6 +15,10 @@ angular.module('opdClient')
             },
             isAuthenticated: function () {
                 return JSON.parse(sessionStorage.getItem('authenticated'));
+            },
+            destroySession: function () {
+                sessionStorage.removeItem('user');
+                sessionStorage.removeItem('authenticated');
             }
         };
     });
