@@ -11,6 +11,10 @@ angular.module('opdClient')
             },
             getQueuedPatients: function () {
                 return $http.get(baseURL + '/patients');
+            },
+            getQueuedPatientsForDoctor: function (doctor) {
+                var temp = '59568044506d1a5ef54ad96f';
+                return $http.get(baseURL + '/' + temp);
             }
         };
     });

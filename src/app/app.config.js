@@ -81,6 +81,11 @@ angular.module('opdClient')
                 url: '/queues',
                 templateUrl: 'components/queues/queues.html'
             };
+            var myQueueState = {
+                name: 'opd.myqueue',
+                url: '/myqueue',
+                templateUrl: 'components/myqueue/myqueue.html'
+            };
 
             $stateProvider.state(loginState);
             $stateProvider.state(templateState);
@@ -98,6 +103,7 @@ angular.module('opdClient')
             $stateProvider.state(noteState);
             $stateProvider.state(attachmentsState);
             $stateProvider.state(queuesState);
+            $stateProvider.state(myQueueState);
             
             $urlRouterProvider.otherwise(function ($injector, $location) { 
                 var $state = $injector.get('$state'); 
