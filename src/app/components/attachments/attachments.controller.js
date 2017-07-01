@@ -1,6 +1,6 @@
 angular
     .module('attachments')
-    .controller('attachmentsController', ['$scope', '$mdDialog', 'selectedPatientService', 'attachmentsService', 'authenticationService', function ($scope, $mdDialog, selectedPatientService, attachmentsService, authenticationService) {
+    .controller('attachmentsController', ['$scope', '$mdDialog', 'selectedPatientService', 'attachmentsService', 'authenticationService', '$rootScope', function ($scope, $mdDialog, selectedPatientService, attachmentsService, authenticationService,  $rootScope) {
 
         $scope.attachments = {};
         $scope.attachments.patientID = selectedPatientService.getId();
@@ -35,6 +35,10 @@ angular
             $scope.attachmentsForm.$setUntouched();
             $scope.attachments.attBy = "Nurse." + authenticationService.getLoggedInUser().username;
 
+        }
+
+        $scope.logOut = function () {
+            $rootScope.$broadcast("logout");
         }
 
 

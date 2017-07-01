@@ -1,6 +1,6 @@
 angular
     .module('newPatients')
-    .controller('newPatientsController', ['$scope', '$mdDialog', 'patientsService', 'uniqueIdService', function ($scope, $mdDialog, patientsService, uniqueIdService) {
+    .controller('newPatientsController', ['$scope', '$mdDialog', 'patientsService', 'uniqueIdService', '$rootScope', function ($scope, $mdDialog, patientsService, uniqueIdService, $rootScope) {
 
         //datepicker validation not to select future dates
         $scope.myDate = new Date();
@@ -76,5 +76,9 @@ angular
             $scope.newPatient = {};
             $scope.patientForm.$setPristine();
             $scope.patientForm.$setUntouched();
+        }
+
+        $scope.logOut = function () {
+            $rootScope.$broadcast("logout");
         }
     }]);
